@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品列表 - 产品管理系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .navbar-user span {
+            font-size: 14px;
+        }
+        
+        .btn-logout {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .btn-logout:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .header-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .header-section h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .search-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .search-bar input, .search-bar select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .search-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+        
+        .btn-warning {
+            background: #ed8936;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #718096;
+            color: white;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .product-code {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .product-category {
+            display: inline-block;
+            background: #e6f2ff;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f56565;
+            margin-bottom: 10px;
+        }
+        
+        .product-stock {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .product-actions .btn {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            padding: 8px;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .pagination a, .pagination span {
+            padding: 8px 15px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .pagination a:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .pagination .active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .no-products {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .no-products h3 {
+            color: #666;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="navbar-brand">产品管理系统</div>
+        <div class="navbar-user">
+            <span>欢迎，<span sec:authentication="name">用户</span></span>
+            <span sec:authorize="hasRole('ADMIN')" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 15px; font-size: 12px;">管理员</span>
+            <form th:action="@{/api/logout}" method="post" style="display: inline;">
+                <button type="submit" class="btn-logout">退出登录</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- 主体内容 -->
+    <div class="container">
+        <!-- 搜索区域 -->
+        <div class="header-section">
+            <h1>产品列表</h1>
+            
+            <form th:action="@{/product/list}" method="get">
+                <div class="search-bar">
+                    <input type="text" name="productName" th:value="${productName}" placeholder="产品名称">
+                    <input type="text" name="category" th:value="${category}" placeholder="产品分类">
+                    <input type="number" name="minPrice" th:value="${minPrice}" placeholder="最低价格" step="0.01">
+                    <input type="number" name="maxPrice" th:value="${maxPrice}" placeholder="最高价格" step="0.01">
+                </div>
+                
+                <div class="search-actions">
+                    <button type="submit" class="btn btn-primary">搜索</button>
+                    <a th:href="@{/product/list}" class="btn btn-secondary">重置</a>
+                    <a th:href="@{/product/add}" class="btn btn-success" sec:authorize="hasRole('ADMIN')">新增产品</a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- 产品列表 -->
+        <div th:if="${page.records.size() > 0}">
+            <div class="product-grid">
+                <div class="product-card" th:each="product : ${page.records}">
+                    <div class="product-image">📦</div>
+                    <div class="product-info">
+                        <div class="product-name" th:text="${product.productName}">产品名称</div>
+                        <div class="product-code" th:text="'编码: ' + ${product.productCode}">PROD001</div>
+                        <span class="product-category" th:text="${product.category}">分类</span>
+                        <div class="product-price" th:text="'¥' + ${#numbers.formatDecimal(product.price, 1, 2)}">¥0.00</div>
+                        <div class="product-stock" th:text="'库存: ' + ${product.stock} + ' 件'">库存: 0</div>
+                        <div class="product-actions">
+                            <a th:href="@{'/product/edit/' + ${product.id}}" class="btn btn-warning" sec:authorize="hasRole('ADMIN')">编辑</a>
+                            <button class="btn btn-danger" th:onclick="'deleteProduct(' + ${product.id} + ')'" sec:authorize="hasRole('ADMIN')">删除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 分页 -->
+            <div class="pagination">
+                <a th:if="${page.current > 1}" 
+                   th:href="@{/product/list(current=${page.current - 1}, size=${page.size}, productName=${productName}, category=${category}, minPrice=${minPrice}, maxPrice=${maxPrice})}">上一页</a>
+                
+                <span th:each="i : ${#numbers.sequence(1, page.pages)}">
+                    <a th:if="${i != page.current}" 
+                       th:href="@{/product/list(current=${i}, size=${page.size}, productName=${productName}, category=${category}, minPrice=${minPrice}, maxPrice=${maxPrice})}" 
+                       th:text="${i}">1</a>
+                    <span th:if="${i == page.current}" class="active" th:text="${i}">1</span>
+                </span>
+                
+                <a th:if="${page.current < page.pages}" 
+                   th:href="@{/product/list(current=${page.current + 1}, size=${page.size}, productName=${productName}, category=${category}, minPrice=${minPrice}, maxPrice=${maxPrice})}">下一页</a>
+                
+                <span>共 <span th:text="${page.total}">0</span> 条记录</span>
+            </div>
+        </div>
+        
+        <!-- 无数据提示 -->
+        <div th:if="${page.records.size() == 0}" class="no-products">
+            <h3>暂无产品数据</h3>
+            <a th:href="@{/product/add}" class="btn btn-primary" sec:authorize="hasRole('ADMIN')">添加第一个产品</a>
+        </div>
+    </div>
+    
+    <script>
+        function deleteProduct(id) {
+            if (confirm('确定要删除这个产品吗？')) {
+                fetch('/product/api/delete/' + id, {
+                    method: 'DELETE'
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('删除成功！');
+                        location.reload();
+                    } else {
+                        alert('删除失败：' + data.message);
+                    }
+                })
+                .catch(err => {
+                    alert('删除失败，请重试');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+# Spring Boot 配置文件
+spring:
+  # 应用名称
+  application:
+    name: product-management-system
+
+  # 数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/product_management_system?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: English629
+    # Druid 连接池配置
+    druid:
+      # 初始化连接数
+      initial-size: 5
+      # 最小连接数
+      min-idle: 5
+      # 最大连接数
+      max-active: 20
+      # 获取连接等待超时时间
+      max-wait: 60000
+      # 配置间隔多久进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      # 验证连接是否可用的SQL
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的filters，stat:监控统计、log4j:日志记录、wall:防御sql注入
+      filters: stat,wall
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 配置DruidStatFilter
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      # 配置DruidStatViewServlet
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        # 禁用HTML页面上的"Reset All"功能
+        reset-enable: false
+        # 登录名和密码
+        login-username: admin
+        login-password: admin
+
+  # Redis 配置
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    # 连接超时时间
+    timeout: 3000ms
+    # 数据库索引（默认为0）
+    database: 0
+    lettuce:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池中的最小空闲连接
+        min-idle: 0
+
+  # Thymeleaf 配置
+  thymeleaf:
+    # 模板编码
+    encoding: UTF-8
+    # 模板模式
+    mode: HTML
+    # 禁用缓存（开发环境）
+    cache: false
+    # 模板文件前缀
+    prefix: classpath:/templates/
+    # 模板文件后缀
+    suffix: .html
+
+  # Session配置
+  session:
+    # Session超时时间（30分钟）
+    timeout: 30m
+
+  # Jackson配置
+  jackson:
+    # 日期格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    # 启用Java 8日期时间模块
+    modules: jdk8,jsr310
+    serialization:
+      # 格式化输出
+      indent_output: true
+      # 忽略无法转换的对象
+      fail_on_empty_beans: false
+      # 禁用将日期写为时间戳
+      write-dates-as-timestamps: false
+    # 反序列化配置
+    deserialization:
+      # 允许对象忽略json中不存在的属性
+      fail_on_unknown_properties: false
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  # 配置扫描路径
+  mapper-locations: classpath*:/mapper/**/*.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.gzist.project.entity
+  # 全局配置
+  global-config:
+    # 数据库相关配置
+    db-config:
+      # 主键类型（AUTO:自增）
+      id-type: AUTO
+      # 字段策略（NOT_NULL:非NULL判断）
+      field-strategy: NOT_NULL
+      # 逻辑删除字段名
+      logic-delete-field: deleted
+      # 逻辑已删除值
+      logic-delete-value: 1
+      # 逻辑未删除值
+      logic-not-delete-value: 0
+    # 是否输出logo
+    banner: false
+  # 配置
+  configuration:
+    # 是否开启自动驼峰命名规则映射
+    map-underscore-to-camel-case: true
+    # 开启Mybatis二级缓存
+    cache-enabled: true
+    # 日志实现
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 日志配置
+logging:
+  level:
+    # 根日志级别
+    root: INFO
+    # 项目日志级别
+    com.gzist.project: DEBUG
+    # MyBatis SQL日志
+    com.gzist.project.mapper: DEBUG
+  # 日志输出格式
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
+  # 日志文件
+  file:
+    # 日志文件路径
+    path: logs
+    # 日志文件名称
+    name: logs/product-management-system.log
+    # 日志文件最大大小
+    max-size: 10MB
+    # 日志文件最大保留天数
+    max-history: 30
+
+# 服务器配置
+server:
+  # 端口
+  port: 8080
+  servlet:
+    # 应用上下文路径
+    context-path: /
+    session:
+      # Session超时时间
+      timeout: 30m
+  # Tomcat配置
+  tomcat:
+    # URI编码
+    uri-encoding: UTF-8
+    # 最大线程数
+    max-threads: 200
+    # 最小工作线程数
+    min-spare-threads: 10
