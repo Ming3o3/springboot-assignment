@@ -2496,3 +2496,11 @@ Consider defining a bean of type 'org.springframework.security.crypto.password.P
 2025-12-25 11:14:11 [http-nio-8080-exec-6] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
 2025-12-25 11:14:12 [http-nio-8080-exec-7] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
 2025-12-25 11:14:28 [http-nio-8080-exec-8] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 11:19:57 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 11:19:58 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 注册, 方法: com.gzist.project.controller.AuthController.registerPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 11:20:05 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 查询, 方法: com.gzist.project.controller.AuthController.checkUsername, IP: 0:0:0:0:0:0:0:1
+2025-12-25 11:20:10 [http-nio-8080-exec-6] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 查询, 方法: com.gzist.project.controller.AuthController.checkEmail, IP: 0:0:0:0:0:0:0:1
+2025-12-25 11:20:15 [http-nio-8080-exec-8] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 11:20:17 [http-nio-8080-exec-10] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 11:20:22 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closing ...
+2025-12-25 11:20:22 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closed

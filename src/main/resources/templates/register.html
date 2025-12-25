@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>用户注册 - 产品管理系统</title>
     <style>
         * {
@@ -203,6 +205,10 @@
     </div>
     
     <script>
+        // 获取CSRF token
+        const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+        const csrfHeader = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+        
         // JavaScript数据合法性校验
         const form = document.getElementById('registerForm');
         const username = document.getElementById('username');
@@ -329,7 +335,8 @@
             fetch('/api/register', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    [csrfHeader]: csrfToken
                 },
                 body: JSON.stringify(formData)
             })
