@@ -208,30 +208,82 @@
         }
         
         .pagination {
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            padding: 20px;
         }
         
-        .page-link {
+        .page-item {
             padding: 8px 12px;
-            border: 1px solid #ddd;
+            background: white;
+            border: 1px solid #e2e8f0;
             border-radius: 5px;
-            color: #667eea;
             text-decoration: none;
+            color: #4a5568;
+            font-size: 14px;
+            min-width: 40px;
+            text-align: center;
+            cursor: pointer;
             transition: all 0.3s;
         }
         
-        .page-link:hover {
-            background: #667eea;
-            color: white;
+        .page-item:hover:not(.disabled):not(.active) {
+            background: #f7fafc;
+            border-color: #667eea;
+            color: #667eea;
         }
         
-        .page-link.active {
-            background: #667eea;
+        .page-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            border-color: #667eea;
+            font-weight: 600;
+        }
+        
+        .page-item.disabled {
+            color: #cbd5e0;
+            cursor: not-allowed;
+            border-color: #e2e8f0;
+        }
+        
+        .page-info {
+            padding: 8px 15px;
+            color: #718096;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+        
+        .page-size-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 15px;
+            padding: 8px 15px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+        }
+        
+        .page-size-selector label {
+            color: #718096;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .page-size-selector select {
+            padding: 6px 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            background: white;
+            color: #4a5568;
+        }
+        
+        .page-size-selector select:focus {
+            outline: none;
             border-color: #667eea;
         }
     </style>
@@ -322,20 +374,59 @@
             </table>
             
             <!-- 分页 -->
-            <div class="pagination" th:if="${page.pages > 1}">
+            <div class="pagination" th:if="${page.total > 0}">
+                <!-- 上一页 -->
                 <a th:if="${page.current > 1}" 
                    th:href="@{/user/manage(current=${page.current - 1}, size=${page.size}, username=${username}, email=${email}, status=${status})}" 
-                   class="page-link">上一页</a>
+                   class="page-item">上一页</a>
+                <span th:if="${page.current == 1}" class="page-item disabled">上一页</span>
                 
-                <span th:each="i : ${#numbers.sequence(1, page.pages)}">
-                    <a th:href="@{/user/manage(current=${i}, size=${page.size}, username=${username}, email=${email}, status=${status})}" 
+                <!-- 首页 -->
+                <a th:if="${page.current > 3}" 
+                   th:href="@{/user/manage(current=1, size=${page.size}, username=${username}, email=${email}, status=${status})}" 
+                   class="page-item">1</a>
+                <span th:if="${page.current > 4}" class="page-item disabled">...</span>
+                
+                <!-- 页码列表（显示当前页前后2页）-->
+                <th:block th:each="i : ${#numbers.sequence(1, page.pages)}">
+                    <a th:if="${i >= page.current - 2 && i <= page.current + 2 && i != page.current}" 
+                       th:href="@{/user/manage(current=${i}, size=${page.size}, username=${username}, email=${email}, status=${status})}" 
                        th:text="${i}"
-                       th:class="${i == page.current ? 'page-link active' : 'page-link'}"></a>
-                </span>
+                       class="page-item"></a>
+                    <span th:if="${i >= page.current - 2 && i <= page.current + 2 && i == page.current}" 
+                          th:text="${i}"
+                          class="page-item active"></span>
+                </th:block>
                 
+                <!-- 末页 -->
+                <span th:if="${page.current < page.pages - 3}" class="page-item disabled">...</span>
+                <a th:if="${page.current < page.pages - 2}" 
+                   th:href="@{/user/manage(current=${page.pages}, size=${page.size}, username=${username}, email=${email}, status=${status})}" 
+                   th:text="${page.pages}"
+                   class="page-item"></a>
+                
+                <!-- 下一页 -->
                 <a th:if="${page.current < page.pages}" 
                    th:href="@{/user/manage(current=${page.current + 1}, size=${page.size}, username=${username}, email=${email}, status=${status})}" 
-                   class="page-link">下一页</a>
+                   class="page-item">下一页</a>
+                <span th:if="${page.current == page.pages}" class="page-item disabled">下一页</span>
+                
+                <!-- 分页信息 -->
+                <span class="page-info">
+                    共 <strong th:text="${page.total}">0</strong> 条记录，
+                    共 <strong th:text="${page.pages}">0</strong> 页，
+                    当前第 <strong th:text="${page.current}">1</strong> 页
+                </span>
+                
+                <!-- 每页大小选择 -->
+                <div class="page-size-selector">
+                    <label>每页显示：</label>
+                    <select id="pageSizeSelect" onchange="changePageSize(this.value)">
+                        <option value="10" th:selected="${page.size == 10}">10条</option>
+                        <option value="20" th:selected="${page.size == 20}">20条</option>
+                        <option value="50" th:selected="${page.size == 50}">50条</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
@@ -344,6 +435,14 @@
         // 获取CSRF token
         const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute('content');
         const csrfHeader = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+        
+        // 改变每页显示数量
+        function changePageSize(size) {
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set('size', size);
+            urlParams.set('current', '1'); // 重置到第一页
+            window.location.href = '/user/manage?' + urlParams.toString();
+        }
         
         function deleteUser(id) {
             if (confirm('确定要删除这个用户吗？删除后将无法恢复！')) {

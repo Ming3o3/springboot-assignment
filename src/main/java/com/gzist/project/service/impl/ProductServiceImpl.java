@@ -1,17 +1,17 @@
 package com.gzist.project.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gzist.project.entity.Product;
 import com.gzist.project.mapper.ProductMapper;
 import com.gzist.project.service.IProductService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -35,29 +35,29 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         // 创建分页对象
         Page<Product> page = new Page<>(current, size);
 
-        // 构建查询条件
-        QueryWrapper<Product> wrapper = new QueryWrapper<>();
+        // 构建查询条件（使用LambdaQueryWrapper）
+        LambdaQueryWrapper<Product> wrapper = new LambdaQueryWrapper<>();
 
         // 产品名称模糊查询
-        if (StringUtils.isNotBlank(productName)) {
-            wrapper.like("product_name", productName);
+        if (StringUtils.hasText(productName)) {
+            wrapper.like(Product::getProductName, productName);
         }
 
         // 产品分类精确查询
-        if (StringUtils.isNotBlank(category)) {
-            wrapper.eq("category", category);
+        if (StringUtils.hasText(category)) {
+            wrapper.eq(Product::getCategory, category);
         }
 
         // 价格区间查询
         if (minPrice != null) {
-            wrapper.ge("price", minPrice);
+            wrapper.ge(Product::getPrice, minPrice);
         }
         if (maxPrice != null) {
-            wrapper.le("price", maxPrice);
+            wrapper.le(Product::getPrice, maxPrice);
         }
 
         // 按创建时间降序排序
-        wrapper.orderByDesc("created_time");
+        wrapper.orderByDesc(Product::getCreatedTime);
 
         return productMapper.selectPage(page, wrapper);
     }
@@ -66,8 +66,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @CacheEvict(value = "products", allEntries = true)
     public boolean addProduct(Product product, Long userId) {
         // 检查产品编码是否已存在
-        QueryWrapper<Product> wrapper = new QueryWrapper<>();
-        wrapper.eq("product_code", product.getProductCode());
+        LambdaQueryWrapper<Product> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Product::getProductCode, product.getProductCode());
         if (productMapper.selectCount(wrapper) > 0) {
             throw new RuntimeException("产品编码已存在");
         }
@@ -94,9 +94,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
         // 如果修改了产品编码，检查新编码是否已被使用
         if (!existProduct.getProductCode().equals(product.getProductCode())) {
-            QueryWrapper<Product> wrapper = new QueryWrapper<>();
-            wrapper.eq("product_code", product.getProductCode());
-            wrapper.ne("id", product.getId());
+            LambdaQueryWrapper<Product> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(Product::getProductCode, product.getProductCode());
+            wrapper.ne(Product::getId, product.getId());
             if (productMapper.selectCount(wrapper) > 0) {
                 throw new RuntimeException("产品编码已存在");
             }

@@ -17,3 +17,1298 @@
 2025-12-25 08:34:18 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
 2025-12-25 08:34:18 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
 2025-12-25 08:34:18 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 5.269 seconds (JVM running for 7.335)
+2025-12-25 08:34:36 [http-nio-8080-exec-3] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25 08:34:36 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-25 08:34:36 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-12-25 08:34:36 [http-nio-8080-exec-3] WARN  org.apache.catalina.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [408] milliseconds.
+2025-12-25 08:34:36 [http-nio-8080-exec-1] WARN  org.apache.catalina.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [408] milliseconds.
+2025-12-25 08:34:37 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:34:37 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:34:40 [http-nio-8080-exec-9] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:34:46 [http-nio-8080-exec-6] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:06 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.editPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:08 [http-nio-8080-exec-3] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:16 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:18 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.editPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:20 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:42 [http-nio-8080-exec-8] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:48 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:55 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:35:56 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:38:04 [http-nio-8080-exec-6] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:38:07 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:44:45 [http-nio-8080-exec-8] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:44:47 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:44:50 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:44:51 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 注册, 方法: com.gzist.project.controller.AuthController.registerPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:44:54 [http-nio-8080-exec-7] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:50:32 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 08:54:00 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 34 class path changes (0 additions, 34 deletions, 0 modifications)
+2025-12-25 08:54:00 [Thread-5] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 08:54:00 [Thread-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-12-25 08:54:00 [Thread-5] ERROR org.apache.catalina.session.StandardManager - Exception unloading sessions to persistent storage
+java.io.FileNotFoundException: C:\Users\Ming\AppData\Local\Temp\41E6C1FD0303EC0F7F532AA1DF8BB5FEC356D25A\servlet-sessions\SESSIONS.ser (系统找不到指定的路径。)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:123)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:303)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:268)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:384)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5459)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1409)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1398)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:983)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1409)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1398)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:983)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.StandardService.stopInternal(StandardService.java:495)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.StandardServer.stopInternal(StandardServer.java:982)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.startup.Tomcat.stop(Tomcat.java:496)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stopTomcat(TomcatWebServer.java:273)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stop(TomcatWebServer.java:331)
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.stop(WebServerStartStopLifecycle.java:52)
+	at org.springframework.context.SmartLifecycle.stop(SmartLifecycle.java:117)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStop(DefaultLifecycleProcessor.java:234)
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$300(DefaultLifecycleProcessor.java:54)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.stop(DefaultLifecycleProcessor.java:373)
+	at org.springframework.context.support.DefaultLifecycleProcessor.stopBeans(DefaultLifecycleProcessor.java:206)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onClose(DefaultLifecycleProcessor.java:129)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1067)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021)
+	at org.springframework.boot.devtools.restart.Restarter.stop(Restarter.java:309)
+	at org.springframework.boot.devtools.restart.Restarter.lambda$restart$1(Restarter.java:251)
+	at org.springframework.boot.devtools.restart.Restarter$LeakSafeThread.run(Restarter.java:629)
+2025-12-25 08:54:01 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2025-12-25 08:54:01 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2025-12-25 08:54:07 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 18040 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 08:54:07 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 08:54:07 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:54:07 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 08:54:07 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 08:54:07 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-12-25 08:54:07 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 08:54:07 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 08:54:07 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 08:54:07 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 08:54:07 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 598 ms
+2025-12-25 08:54:07 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 08:54:07 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2025-12-25 08:54:08 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@691abe75, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fd11967, org.springframework.security.web.context.SecurityContextPersistenceFilter@51de0e02, org.springframework.security.web.header.HeaderWriterFilter@9a49b9f, org.springframework.security.web.csrf.CsrfFilter@5046cbee, org.springframework.security.web.authentication.logout.LogoutFilter@441dd53c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@25bf2524, org.springframework.security.web.session.ConcurrentSessionFilter@35d8c019, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76390ef5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29447a72, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2b4e8db6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@239b95bc, org.springframework.security.web.session.SessionManagementFilter@53a77838, org.springframework.security.web.access.ExceptionTranslationFilter@53b6ea9a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@863c7c6]
+2025-12-25 08:54:08 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 08:54:09 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 08:54:09 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 2.031 seconds (JVM running for 1197.675)
+2025-12-25 08:54:09 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 08:56:31 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 33 class path changes (0 additions, 33 deletions, 0 modifications)
+2025-12-25 08:56:31 [Thread-7] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 08:56:31 [Thread-7] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2025-12-25 08:56:31 [Thread-7] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2025-12-25 08:56:33 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 18040 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 08:56:33 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 08:56:33 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:56:34 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 08:56:34 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 08:56:34 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2025-12-25 08:56:34 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 08:56:34 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 08:56:34 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 08:56:34 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 08:56:34 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 546 ms
+2025-12-25 08:56:34 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 08:56:34 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2025-12-25 08:56:35 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16425a78, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7215a28f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b394cfd, org.springframework.security.web.header.HeaderWriterFilter@4c0794f3, org.springframework.security.web.csrf.CsrfFilter@7bc624e3, org.springframework.security.web.authentication.logout.LogoutFilter@5e64ceb8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@241f97ca, org.springframework.security.web.session.ConcurrentSessionFilter@375db597, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4eba32af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ad69e2d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1739a328, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a6cdac0, org.springframework.security.web.session.SessionManagementFilter@7d7677e6, org.springframework.security.web.access.ExceptionTranslationFilter@7b96e7d6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@37ce9e6]
+2025-12-25 08:56:35 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 08:56:35 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 08:56:35 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 1.936 seconds (JVM running for 1344.394)
+2025-12-25 08:56:35 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 08:57:11 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25 08:57:11 [Thread-14] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 08:57:11 [Thread-14] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
+2025-12-25 08:57:11 [Thread-14] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed
+2025-12-25 08:57:11 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 18040 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 08:57:11 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 08:57:11 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 08:57:11 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 08:57:11 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 08:57:11 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 159 ms
+2025-12-25 08:57:11 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 08:57:11 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} inited
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@741c52e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@61b524a7, org.springframework.security.web.context.SecurityContextPersistenceFilter@5b8c6b57, org.springframework.security.web.header.HeaderWriterFilter@77f82aa8, org.springframework.security.web.csrf.CsrfFilter@3f54eaed, org.springframework.security.web.authentication.logout.LogoutFilter@6a55c0ca, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@51d1799a, org.springframework.security.web.session.ConcurrentSessionFilter@5dd9fe2e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2da92641, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3545ade9, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@348f2ba7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b729ca2, org.springframework.security.web.session.SessionManagementFilter@45c277f9, org.springframework.security.web.access.ExceptionTranslationFilter@7f7f358f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5298f494]
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 08:57:11 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 0.604 seconds (JVM running for 1380.511)
+2025-12-25 08:57:11 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 08:57:37 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-12-25 08:57:37 [Thread-21] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 08:57:37 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closing ...
+2025-12-25 08:57:37 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closed
+2025-12-25 08:57:37 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 18040 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 08:57:37 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 08:57:37 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:57:37 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 08:57:37 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 08:57:37 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-12-25 08:57:37 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 08:57:37 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 08:57:37 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 08:57:38 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 08:57:38 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 184 ms
+2025-12-25 08:57:38 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 08:57:38 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} inited
+2025-12-25 08:57:38 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@353b7582, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6cf90852, org.springframework.security.web.context.SecurityContextPersistenceFilter@3486add5, org.springframework.security.web.header.HeaderWriterFilter@656d013c, org.springframework.security.web.csrf.CsrfFilter@2aa9d6e3, org.springframework.security.web.authentication.logout.LogoutFilter@6175ec59, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2214a07b, org.springframework.security.web.session.ConcurrentSessionFilter@2f8fd768, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5bded7c0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70736a29, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@79fcd82f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6be96ace, org.springframework.security.web.session.SessionManagementFilter@4bf50e3b, org.springframework.security.web.access.ExceptionTranslationFilter@64bfe5a1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@235f5897]
+2025-12-25 08:57:38 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 08:57:38 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 08:57:38 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 0.574 seconds (JVM running for 1407.09)
+2025-12-25 08:57:38 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 08:58:24 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25 08:58:24 [Thread-25] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 08:58:24 [Thread-25] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closing ...
+2025-12-25 08:58:24 [Thread-25] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closed
+2025-12-25 08:58:24 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 18040 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 08:58:24 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 08:58:24 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:58:24 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.gzist.project.SpringbootApplication]; nested exception is java.io.FileNotFoundException: class path resource [com/gzist/project/service/IUserService.class] cannot be opened because it does not exist
+2025-12-25 08:58:24 [restartedMain] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.gzist.project.SpringbootApplication]; nested exception is java.io.FileNotFoundException: class path resource [com/gzist/project/service/IUserService.class] cannot be opened because it does not exist
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:188) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at com.gzist.project.SpringbootApplication.main(SpringbootApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+Caused by: java.io.FileNotFoundException: class path resource [com/gzist/project/service/IUserService.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:199) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:55) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:48) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:86) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:73) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:696) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser$SourceClass.getInterfaces(ConfigurationClassParser.java:1024) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.processInterfaces(ConfigurationClassParser.java:385) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:331) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:249) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:303) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:249) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:206) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:174) ~[spring-context-5.3.24.jar:5.3.24]
+	... 18 common frames omitted
+2025-12-25 08:58:26 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 18040 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 08:58:26 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 08:58:26 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:58:26 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 08:58:26 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 08:58:26 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-12-25 08:58:26 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 08:58:26 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 08:58:26 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 08:58:26 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 08:58:26 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 341 ms
+2025-12-25 08:58:26 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 08:58:26 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} inited
+2025-12-25 08:58:26 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.gzist.project.service.IUserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-12-25 08:58:26 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closing ...
+2025-12-25 08:58:26 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closed
+2025-12-25 08:58:26 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 08:58:26 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2025-12-25 08:58:26 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userService in com.gzist.project.controller.AuthController required a bean of type 'com.gzist.project.service.IUserService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.gzist.project.service.IUserService' in your configuration.
+
+2025-12-25 08:58:28 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 18040 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 08:58:28 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 08:58:28 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:58:29 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 08:58:29 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 08:58:29 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2025-12-25 08:58:29 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 08:58:29 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 08:58:29 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 08:58:29 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 08:58:29 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1079 ms
+2025-12-25 08:58:30 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 08:58:30 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} inited
+2025-12-25 08:58:30 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e26ee6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@350bb85e, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ed1da27, org.springframework.security.web.header.HeaderWriterFilter@49a756eb, org.springframework.security.web.csrf.CsrfFilter@47eed509, org.springframework.security.web.authentication.logout.LogoutFilter@1628c88d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1bf70e97, org.springframework.security.web.session.ConcurrentSessionFilter@33b9f449, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42dd7932, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a563e8d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6e93d8ec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@162b8bde, org.springframework.security.web.session.SessionManagementFilter@24e2f94, org.springframework.security.web.access.ExceptionTranslationFilter@dec1d24, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59bd5cf8]
+2025-12-25 08:58:31 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 08:58:31 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 08:58:31 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 3.02 seconds (JVM running for 1460.245)
+2025-12-25 08:58:31 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 09:02:35 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25 09:02:35 [Thread-29] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 09:02:35 [Thread-29] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} closing ...
+2025-12-25 09:02:35 [Thread-29] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-7} closed
+2025-12-25 09:02:35 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 18040 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:02:35 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:02:35 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:02:35 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:02:35 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:02:35 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:02:35 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:02:35 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:02:35 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:02:35 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:02:35 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 161 ms
+2025-12-25 09:02:35 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:02:35 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} inited
+2025-12-25 09:02:35 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@382554fa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b6951b3, org.springframework.security.web.context.SecurityContextPersistenceFilter@572769d5, org.springframework.security.web.header.HeaderWriterFilter@299002e5, org.springframework.security.web.csrf.CsrfFilter@11d0fd44, org.springframework.security.web.authentication.logout.LogoutFilter@3580c520, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1dad2c00, org.springframework.security.web.session.ConcurrentSessionFilter@13b2681b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@395459b5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1bbaf06f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@198a1f13, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5fd0a5f2, org.springframework.security.web.session.SessionManagementFilter@59e9f31, org.springframework.security.web.access.ExceptionTranslationFilter@5442127a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@29374d00]
+2025-12-25 09:02:36 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:02:36 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:02:36 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 0.571 seconds (JVM running for 1704.889)
+2025-12-25 09:02:36 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 09:02:44 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} closing ...
+2025-12-25 09:02:44 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-8} closed
+2025-12-25 09:02:49 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 27712 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:02:49 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:02:49 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:02:49 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-25 09:02:49 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-25 09:02:50 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:02:50 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:02:50 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:02:51 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:02:51 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:02:51 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:02:51 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:02:51 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1503 ms
+2025-12-25 09:02:51 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:02:51 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2025-12-25 09:02:52 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@936ff, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18f699aa, org.springframework.security.web.context.SecurityContextPersistenceFilter@63b806d, org.springframework.security.web.header.HeaderWriterFilter@4e42e02b, org.springframework.security.web.csrf.CsrfFilter@1c00ddd3, org.springframework.security.web.authentication.logout.LogoutFilter@6d084f99, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@774fda4a, org.springframework.security.web.session.ConcurrentSessionFilter@5f7a0e72, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6148c6dd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a7e2c91, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@15430ad9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@290f2d33, org.springframework.security.web.session.SessionManagementFilter@db3fc3a, org.springframework.security.web.access.ExceptionTranslationFilter@1e8eda0b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a28b72a]
+2025-12-25 09:02:52 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:02:52 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:02:53 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 3.775 seconds (JVM running for 5.571)
+2025-12-25 09:03:46 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25 09:03:46 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-25 09:03:46 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-12-25 09:03:46 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:03:48 [http-nio-8080-exec-2] WARN  c.b.m.core.toolkit.support.ReflectLambdaMeta - Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @478190fc
+2025-12-25 09:03:48 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:03:49 [http-nio-8080-exec-3] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:03:50 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:03:54 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:03:55 [http-nio-8080-exec-6] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.editPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:04:01 [http-nio-8080-exec-9] ERROR com.gzist.project.aspect.OperationLogAspect - 记录操作日志失败
+com.alibaba.fastjson.JSONException: toJSONString error
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1483)
+	at com.gzist.project.aspect.OperationLogAspect.doAfterReturning(OperationLogAspect.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:617)
+	at org.springframework.aop.aspectj.AspectJAfterReturningAdvice.afterReturning(AspectJAfterReturningAdvice.java:66)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.gzist.project.controller.UserManagementController$$EnhancerBySpringCGLIB$$88e4f094.update(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:699)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:106)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:97)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:132)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.lang.IllegalStateException: No write method available
+	at org.springframework.util.Assert.state(Assert.java:76)
+	at org.springframework.beans.GenericTypeAwarePropertyDescriptor.getWriteMethodForActualAccess(GenericTypeAwarePropertyDescriptor.java:137)
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFuncFinal.getFieldValue(FieldWriterObjectFuncFinal.java:36)
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFinal.write(FieldWriterObjectFinal.java:52)
+	at com.alibaba.fastjson2.writer.ObjectWriterAdapter.write(ObjectWriterAdapter.java:303)
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85)
+	at com.alibaba.fastjson2.writer.OWG_9_11_BeanWrapperImpl.write(Unknown Source)
+	at com.alibaba.fastjson2.writer.OWG_6_16_BeanPropertyBindingResult.write(Unknown Source)
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85)
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1475)
+	... 122 common frames omitted
+2025-12-25 09:04:25 [http-nio-8080-exec-10] ERROR com.gzist.project.aspect.OperationLogAspect - 记录操作日志失败
+com.alibaba.fastjson.JSONException: toJSONString error
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1483)
+	at com.gzist.project.aspect.OperationLogAspect.doAfterReturning(OperationLogAspect.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:617)
+	at org.springframework.aop.aspectj.AspectJAfterReturningAdvice.afterReturning(AspectJAfterReturningAdvice.java:66)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.gzist.project.controller.UserManagementController$$EnhancerBySpringCGLIB$$88e4f094.update(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:699)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:106)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:97)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:132)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.lang.IllegalStateException: No write method available
+	at org.springframework.util.Assert.state(Assert.java:76)
+	at org.springframework.beans.GenericTypeAwarePropertyDescriptor.getWriteMethodForActualAccess(GenericTypeAwarePropertyDescriptor.java:137)
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFuncFinal.getFieldValue(FieldWriterObjectFuncFinal.java:36)
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFinal.write(FieldWriterObjectFinal.java:52)
+	at com.alibaba.fastjson2.writer.ObjectWriterAdapter.write(ObjectWriterAdapter.java:303)
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85)
+	at com.alibaba.fastjson2.writer.OWG_9_11_BeanWrapperImpl.write(Unknown Source)
+	at com.alibaba.fastjson2.writer.OWG_6_16_BeanPropertyBindingResult.write(Unknown Source)
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85)
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1475)
+	... 122 common frames omitted
+2025-12-25 09:04:26 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:04:30 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:04:31 [http-nio-8080-exec-3] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:04:43 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:04:43 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:04:44 [http-nio-8080-exec-6] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:04:45 [http-nio-8080-exec-8] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:11:13 [http-nio-8080-exec-10] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:11:16 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:11:17 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:11:28 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 7 class path changes (0 additions, 0 deletions, 7 modifications)
+2025-12-25 09:11:28 [Thread-5] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 09:11:28 [Thread-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-12-25 09:11:28 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2025-12-25 09:11:28 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2025-12-25 09:11:28 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 27712 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:11:28 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:11:28 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:11:30 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:11:30 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:11:30 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 165 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:11:32 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:11:32 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:11:32 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:11:33 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:11:33 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4730 ms
+2025-12-25 09:11:34 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:11:34 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2025-12-25 09:11:36 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c86fd74, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e3f51a, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ce7d59, org.springframework.security.web.header.HeaderWriterFilter@6b82d335, org.springframework.security.web.csrf.CsrfFilter@5556f9a, org.springframework.security.web.authentication.logout.LogoutFilter@524e0d7f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@ff48a59, org.springframework.security.web.session.ConcurrentSessionFilter@9caf758, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c32fec9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a25fb0f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@52c716f0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2aee013d, org.springframework.security.web.session.SessionManagementFilter@274d7594, org.springframework.security.web.access.ExceptionTranslationFilter@251db3b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61239761]
+2025-12-25 09:11:37 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:11:37 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:11:37 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 8.834 seconds (JVM running for 530.394)
+2025-12-25 09:11:37 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 09:11:39 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 3 class path changes (0 additions, 3 deletions, 0 modifications)
+2025-12-25 09:11:39 [Thread-7] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 09:11:39 [Thread-7] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2025-12-25 09:11:39 [Thread-7] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2025-12-25 09:11:39 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 27712 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:11:39 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:11:39 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:11:39 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:11:39 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:11:39 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:11:39 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:11:39 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:11:39 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:11:39 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:11:39 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 618 ms
+2025-12-25 09:11:40 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:11:40 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2025-12-25 09:11:40 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authController' defined in file [D:\作业\高级架构技术\期末大作业\springboot\target\classes\com\gzist\project\controller\AuthController.class]: Post-processing of merged bean definition failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.gzist.project.controller.AuthController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@54019c96]
+2025-12-25 09:11:40 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
+2025-12-25 09:11:40 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed
+2025-12-25 09:11:40 [restartedMain] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 09:11:40 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2025-12-25 09:11:40 [restartedMain] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authController' defined in file [D:\作业\高级架构技术\期末大作业\springboot\target\classes\com\gzist\project\controller\AuthController.class]: Post-processing of merged bean definition failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [com.gzist.project.controller.AuthController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@54019c96]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:597) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at com.gzist.project.SpringbootApplication.main(SpringbootApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.gzist.project.controller.AuthController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@54019c96]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:743) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:675) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:377) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:358) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:306) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1116) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/gzist/project/service/IUserService
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3297) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2371) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:738) ~[spring-core-5.3.24.jar:5.3.24]
+	... 26 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.gzist.project.service.IUserService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:467) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:145) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+	... 30 common frames omitted
+2025-12-25 09:11:43 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 27712 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:11:43 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:11:43 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:11:43 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:11:43 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:11:43 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:11:43 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:11:43 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:11:43 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:11:43 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:11:43 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 439 ms
+2025-12-25 09:11:43 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:11:43 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} inited
+2025-12-25 09:11:44 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d8fd1af, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43756c9f, org.springframework.security.web.context.SecurityContextPersistenceFilter@35a3ac2c, org.springframework.security.web.header.HeaderWriterFilter@2d2e9c37, org.springframework.security.web.csrf.CsrfFilter@4d64c9cf, org.springframework.security.web.authentication.logout.LogoutFilter@35ef1aeb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6b39fd1, org.springframework.security.web.session.ConcurrentSessionFilter@485699a0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52da4dd9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@289bf415, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1f348fec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59223e37, org.springframework.security.web.session.SessionManagementFilter@231716bc, org.springframework.security.web.access.ExceptionTranslationFilter@14ad34a2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@70b1c6bf]
+2025-12-25 09:11:44 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:11:44 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:11:44 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 1.444 seconds (JVM running for 537.382)
+2025-12-25 09:11:44 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 09:12:35 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closing ...
+2025-12-25 09:12:35 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closed
+2025-12-25 09:12:39 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 24420 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:12:39 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:12:39 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:12:39 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-25 09:12:39 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-25 09:12:40 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:12:40 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:12:40 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:12:41 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:12:41 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:12:41 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:12:41 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:12:41 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2049 ms
+2025-12-25 09:12:41 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:12:41 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2025-12-25 09:12:42 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@9c1cccb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@472bc85d, org.springframework.security.web.context.SecurityContextPersistenceFilter@155d15f1, org.springframework.security.web.header.HeaderWriterFilter@445bf770, org.springframework.security.web.csrf.CsrfFilter@70dab1f2, org.springframework.security.web.authentication.logout.LogoutFilter@328b5195, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@96955d0, org.springframework.security.web.session.ConcurrentSessionFilter@3be165d4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@232c9f45, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27c85372, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5c56cbd1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a9e2e49, org.springframework.security.web.session.SessionManagementFilter@480a1506, org.springframework.security.web.access.ExceptionTranslationFilter@56e433bb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3cb4fc12]
+2025-12-25 09:12:43 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:12:43 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:12:43 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 4.621 seconds (JVM running for 5.717)
+2025-12-25 09:14:43 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25 09:14:43 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-25 09:14:43 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-12-25 09:14:43 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:14:43 [http-nio-8080-exec-4] WARN  c.b.m.core.toolkit.support.ReflectLambdaMeta - Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @436813f3
+2025-12-25 09:14:43 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:14:44 [http-nio-8080-exec-9] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:14:45 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:14:46 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:14:51 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:14:56 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:14:58 [http-nio-8080-exec-7] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:22:48 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25 09:22:48 [Thread-5] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 09:22:48 [Thread-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-12-25 09:22:48 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2025-12-25 09:22:48 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2025-12-25 09:22:48 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 24420 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:22:48 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:22:48 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:22:48 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:22:48 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:22:48 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:22:49 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:22:49 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:22:49 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:22:49 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:22:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 200 ms
+2025-12-25 09:22:49 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:22:49 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2025-12-25 09:22:49 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6fe6dd5f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@dbba474, org.springframework.security.web.context.SecurityContextPersistenceFilter@78c05dd9, org.springframework.security.web.header.HeaderWriterFilter@75be1dd8, org.springframework.security.web.csrf.CsrfFilter@46fe328, org.springframework.security.web.authentication.logout.LogoutFilter@6a4a1f85, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@31c6b1c7, org.springframework.security.web.session.ConcurrentSessionFilter@4d8a2fde, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@520b20b1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5df70b84, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@198f5fbc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@977648d, org.springframework.security.web.session.SessionManagementFilter@3687fc85, org.springframework.security.web.access.ExceptionTranslationFilter@61da94b2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5f67bb0c]
+2025-12-25 09:22:49 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:22:49 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:22:49 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 0.674 seconds (JVM running for 612.216)
+2025-12-25 09:22:49 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 09:27:01 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2025-12-25 09:27:01 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2025-12-25 09:27:08 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 22348 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:27:08 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:27:08 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:27:08 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-25 09:27:08 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-25 09:27:09 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:27:09 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:27:09 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:27:10 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:27:10 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:27:10 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:27:10 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:27:10 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1891 ms
+2025-12-25 09:27:10 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:27:11 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2025-12-25 09:27:12 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5bc9729c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@141f2d32, org.springframework.security.web.context.SecurityContextPersistenceFilter@3c00ac90, org.springframework.security.web.header.HeaderWriterFilter@fbd2918, org.springframework.security.web.csrf.CsrfFilter@396d66d, org.springframework.security.web.authentication.logout.LogoutFilter@2d249aba, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@24ccd32e, org.springframework.security.web.session.ConcurrentSessionFilter@c7721ca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18d59e7b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e24570e, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@583519b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@265069f3, org.springframework.security.web.session.SessionManagementFilter@1f149cdf, org.springframework.security.web.access.ExceptionTranslationFilter@2d876580, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@254457c]
+2025-12-25 09:27:12 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:27:12 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:27:12 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 4.645 seconds (JVM running for 5.888)
+2025-12-25 09:28:49 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25 09:28:49 [Thread-5] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 09:28:49 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2025-12-25 09:28:49 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2025-12-25 09:28:49 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 22348 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:28:49 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:28:49 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:28:49 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:28:49 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:28:49 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:28:49 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:28:49 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:28:49 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:28:49 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:28:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 181 ms
+2025-12-25 09:28:49 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:28:49 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2025-12-25 09:28:50 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5e39a99b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@716dab9f, org.springframework.security.web.context.SecurityContextPersistenceFilter@25c138c8, org.springframework.security.web.header.HeaderWriterFilter@4de916c5, org.springframework.security.web.csrf.CsrfFilter@3b1f5dd, org.springframework.security.web.authentication.logout.LogoutFilter@7e0dcd2c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@20fa35ea, org.springframework.security.web.session.ConcurrentSessionFilter@66b19ddb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@642c4bf8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cbc2587, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@333945ef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49853d, org.springframework.security.web.session.SessionManagementFilter@6a22825f, org.springframework.security.web.access.ExceptionTranslationFilter@4821625f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c2e6aa1]
+2025-12-25 09:28:50 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:28:50 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:28:50 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 0.651 seconds (JVM running for 103.517)
+2025-12-25 09:28:50 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-25 09:31:40 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25 09:31:40 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-25 09:31:40 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-12-25 09:31:40 [http-nio-8080-exec-1] WARN  c.b.m.core.toolkit.support.ReflectLambdaMeta - Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @436813f3
+2025-12-25 09:31:41 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:35:30 [http-nio-8080-exec-5] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:37:43 [http-nio-8080-exec-7] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:37:44 [http-nio-8080-exec-8] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:37:45 [http-nio-8080-exec-10] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:40:58 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:40:59 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: user, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:41:01 [http-nio-8080-exec-6] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: anonymousUser, 操作: 登录, 方法: com.gzist.project.controller.AuthController.loginPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:41:01 [http-nio-8080-exec-6] WARN  org.apache.catalina.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [115] milliseconds.
+2025-12-25 09:41:05 [http-nio-8080-exec-8] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:41:19 [http-nio-8080-exec-10] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:41:20 [http-nio-8080-exec-9] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:42:09 [http-nio-8080-exec-4] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.addPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:42:26 [http-nio-8080-exec-2] ERROR com.gzist.project.aspect.OperationLogAspect - 记录操作日志失败
+com.alibaba.fastjson.JSONException: toJSONString error
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1483) ~[fastjson-2.0.32.jar:na]
+	at com.gzist.project.aspect.OperationLogAspect.doAfterReturning(OperationLogAspect.java:67) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:617) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.aspectj.AspectJAfterReturningAdvice.afterReturning(AspectJAfterReturningAdvice.java:66) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:58) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:61) ~[spring-security-core-5.7.5.jar:5.7.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.24.jar:5.3.24]
+	at com.gzist.project.controller.UserManagementController$$EnhancerBySpringCGLIB$$16d903ba.add(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.69.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.69.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114) ~[druid-1.2.16.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:106) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:97) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:132) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: java.lang.IllegalStateException: No write method available
+	at org.springframework.util.Assert.state(Assert.java:76) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.beans.GenericTypeAwarePropertyDescriptor.getWriteMethodForActualAccess(GenericTypeAwarePropertyDescriptor.java:137) ~[spring-beans-5.3.24.jar:5.3.24]
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFuncFinal.getFieldValue(FieldWriterObjectFuncFinal.java:36) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFinal.write(FieldWriterObjectFinal.java:52) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterAdapter.write(ObjectWriterAdapter.java:303) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.OWG_9_11_BeanWrapperImpl.write(Unknown Source) ~[na:na]
+	at com.alibaba.fastjson2.writer.OWG_6_16_BeanPropertyBindingResult.write(Unknown Source) ~[na:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1475) ~[fastjson-2.0.32.jar:na]
+	... 122 common frames omitted
+2025-12-25 09:42:41 [http-nio-8080-exec-5] ERROR com.gzist.project.aspect.OperationLogAspect - 记录操作日志失败
+com.alibaba.fastjson.JSONException: toJSONString error
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1483) ~[fastjson-2.0.32.jar:na]
+	at com.gzist.project.aspect.OperationLogAspect.doAfterReturning(OperationLogAspect.java:67) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:617) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.aspectj.AspectJAfterReturningAdvice.afterReturning(AspectJAfterReturningAdvice.java:66) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:58) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:61) ~[spring-security-core-5.7.5.jar:5.7.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.24.jar:5.3.24]
+	at com.gzist.project.controller.UserManagementController$$EnhancerBySpringCGLIB$$16d903ba.add(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.69.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.69.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114) ~[druid-1.2.16.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:106) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:97) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:132) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: java.lang.IllegalStateException: No write method available
+	at org.springframework.util.Assert.state(Assert.java:76) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.beans.GenericTypeAwarePropertyDescriptor.getWriteMethodForActualAccess(GenericTypeAwarePropertyDescriptor.java:137) ~[spring-beans-5.3.24.jar:5.3.24]
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFuncFinal.getFieldValue(FieldWriterObjectFuncFinal.java:36) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFinal.write(FieldWriterObjectFinal.java:52) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterAdapter.write(ObjectWriterAdapter.java:303) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.OWG_9_11_BeanWrapperImpl.write(Unknown Source) ~[na:na]
+	at com.alibaba.fastjson2.writer.OWG_6_16_BeanPropertyBindingResult.write(Unknown Source) ~[na:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1475) ~[fastjson-2.0.32.jar:na]
+	... 122 common frames omitted
+2025-12-25 09:42:47 [http-nio-8080-exec-6] ERROR com.gzist.project.aspect.OperationLogAspect - 记录操作日志失败
+com.alibaba.fastjson.JSONException: toJSONString error
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1483) ~[fastjson-2.0.32.jar:na]
+	at com.gzist.project.aspect.OperationLogAspect.doAfterReturning(OperationLogAspect.java:67) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:617) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.aspectj.AspectJAfterReturningAdvice.afterReturning(AspectJAfterReturningAdvice.java:66) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:58) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor.invoke(MethodSecurityInterceptor.java:61) ~[spring-security-core-5.7.5.jar:5.7.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.24.jar:5.3.24]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.24.jar:5.3.24]
+	at com.gzist.project.controller.UserManagementController$$EnhancerBySpringCGLIB$$16d903ba.add(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.69.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.69.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:114) ~[druid-1.2.16.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:106) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:97) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:132) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.5.jar:5.7.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: java.lang.IllegalStateException: No write method available
+	at org.springframework.util.Assert.state(Assert.java:76) ~[spring-core-5.3.24.jar:5.3.24]
+	at org.springframework.beans.GenericTypeAwarePropertyDescriptor.getWriteMethodForActualAccess(GenericTypeAwarePropertyDescriptor.java:137) ~[spring-beans-5.3.24.jar:5.3.24]
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFuncFinal.getFieldValue(FieldWriterObjectFuncFinal.java:36) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.FieldWriterObjectFinal.write(FieldWriterObjectFinal.java:52) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterAdapter.write(ObjectWriterAdapter.java:303) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson2.writer.OWG_9_11_BeanWrapperImpl.write(Unknown Source) ~[na:na]
+	at com.alibaba.fastjson2.writer.OWG_6_16_BeanPropertyBindingResult.write(Unknown Source) ~[na:na]
+	at com.alibaba.fastjson2.writer.ObjectWriterArray.write(ObjectWriterArray.java:85) ~[fastjson2-2.0.32.jar:na]
+	at com.alibaba.fastjson.JSON.toJSONString(JSON.java:1475) ~[fastjson-2.0.32.jar:na]
+	... 122 common frames omitted
+2025-12-25 09:42:48 [http-nio-8080-exec-3] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:43:13 [http-nio-8080-exec-8] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:43:14 [http-nio-8080-exec-10] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:44:09 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2025-12-25 09:44:09 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2025-12-25 09:44:13 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 22548 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:44:13 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:44:13 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:44:13 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-25 09:44:13 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-25 09:44:14 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:44:14 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:44:14 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:44:15 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:44:15 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:44:15 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:44:15 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:44:15 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1500 ms
+2025-12-25 09:44:15 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:44:16 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2025-12-25 09:44:16 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b42a5bd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77100d8d, org.springframework.security.web.context.SecurityContextPersistenceFilter@69b1961, org.springframework.security.web.header.HeaderWriterFilter@e39de8f, org.springframework.security.web.csrf.CsrfFilter@31ed67e7, org.springframework.security.web.authentication.logout.LogoutFilter@2c82c532, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2e6a779f, org.springframework.security.web.session.ConcurrentSessionFilter@4c4a90d2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bd730d1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e89c073, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@10690433, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7cb96253, org.springframework.security.web.session.SessionManagementFilter@15457ef7, org.springframework.security.web.access.ExceptionTranslationFilter@5646eb69, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e90dd93]
+2025-12-25 09:44:17 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:44:17 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:44:17 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 4.051 seconds (JVM running for 5.085)
+2025-12-25 09:44:39 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25 09:44:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-25 09:44:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-12-25 09:44:39 [http-nio-8080-exec-1] WARN  c.b.m.core.toolkit.support.ReflectLambdaMeta - Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @436813f3
+2025-12-25 09:44:39 [http-nio-8080-exec-1] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:44:43 [http-nio-8080-exec-2] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.UserManagementController.managePage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:44:44 [http-nio-8080-exec-6] INFO  com.gzist.project.aspect.OperationLogAspect - 操作日志 - 用户: admin, 操作: 查询, 方法: com.gzist.project.controller.ProductController.listPage, IP: 0:0:0:0:0:0:0:1
+2025-12-25 09:55:06 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2025-12-25 09:55:06 [Thread-5] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-25 09:55:06 [Thread-5] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-12-25 09:55:06 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2025-12-25 09:55:06 [Thread-5] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2025-12-25 09:55:06 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Starting SpringbootApplication using Java 17.0.10 on DESKTOP-V75S94V with PID 22548 (D:\作业\高级架构技术\期末大作业\springboot\target\classes started by Ming in D:\作业\高级架构技术\期末大作业\springboot)
+2025-12-25 09:55:06 [restartedMain] DEBUG com.gzist.project.SpringbootApplication - Running with Spring Boot v2.7.6, Spring v5.3.24
+2025-12-25 09:55:06 [restartedMain] INFO  com.gzist.project.SpringbootApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-25 09:55:06 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-25 09:55:06 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-25 09:55:06 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-12-25 09:55:06 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-12-25 09:55:06 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-25 09:55:06 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.69]
+2025-12-25 09:55:06 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-25 09:55:06 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 607 ms
+2025-12-25 09:55:07 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2025-12-25 09:55:07 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2025-12-25 09:55:07 [restartedMain] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@578a2d38, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@dd4d284, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ed46c13, org.springframework.security.web.header.HeaderWriterFilter@10368c0, org.springframework.security.web.csrf.CsrfFilter@508db282, org.springframework.security.web.authentication.logout.LogoutFilter@188c7037, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@41e35219, org.springframework.security.web.session.ConcurrentSessionFilter@74a45abe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e914252, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35ab2ce1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@64f40331, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56fc2abd, org.springframework.security.web.session.SessionManagementFilter@4900e8be, org.springframework.security.web.access.ExceptionTranslationFilter@394a6a0b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@360d913c]
+2025-12-25 09:55:08 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-25 09:55:08 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-12-25 09:55:08 [restartedMain] INFO  com.gzist.project.SpringbootApplication - Started SpringbootApplication in 1.943 seconds (JVM running for 655.96)
+2025-12-25 09:55:08 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
