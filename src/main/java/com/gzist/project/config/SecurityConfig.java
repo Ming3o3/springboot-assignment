@@ -146,7 +146,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .expiredUrl("/login?expired=true")
                 .and()
                 .and()
-                // 暂时禁用CSRF保护（开发环境），生产环境建议启用并在前端添加CSRF token
-                .csrf().disable();
+                // CSRF保护（启用）
+                .csrf(); // 启用CSRF保护，前端需要在请求中携带CSRF token
     }
 }

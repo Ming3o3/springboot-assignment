@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>产品列表 - 产品管理系统</title>
     <style>
         * {
@@ -341,10 +343,18 @@
     </div>
     
     <script>
+        // 获取CSRF token
+        const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+        const csrfHeader = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+        
         function deleteProduct(id) {
             if (confirm('确定要删除这个产品吗？')) {
+                const headers = {};
+                headers[csrfHeader] = csrfToken;
+                
                 fetch('/product/api/delete/' + id, {
-                    method: 'DELETE'
+                    method: 'DELETE',
+                    headers: headers
                 })
                 .then(res => res.json())
                 .then(data => {

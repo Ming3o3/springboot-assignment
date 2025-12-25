@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>编辑产品 - 产品管理系统</title>
     <style>
         * {
@@ -182,6 +184,10 @@
         const form = document.getElementById('productForm');
         const submitBtn = document.getElementById('submitBtn');
         
+        // 获取CSRF token
+        const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+        const csrfHeader = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -202,12 +208,16 @@
                 status: parseInt(document.getElementById('status').value)
             };
             
+            // 创建headers对象并添加CSRF token
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            headers[csrfHeader] = csrfToken;
+            
             // 提交数据
             fetch('/product/api/update', {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: headers,
                 body: JSON.stringify(formData)
             })
             .then(res => res.json())
