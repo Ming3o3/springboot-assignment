@@ -1,6 +1,10 @@
 package com.gzist.project.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.gzist.project.dto.UserManageDTO;
 import com.gzist.project.entity.Role;
 import com.gzist.project.entity.User;
 import com.gzist.project.entity.UserRole;
@@ -12,8 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 用户Service实现类
@@ -88,5 +95,161 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user.setId(userId);
         user.setLastLoginTime(LocalDateTime.now());
         this.updateById(user);
+    }
+
+    @Override
+    public IPage<User> getUserPage(Integer current, Integer size, String username, String email, Integer status) {
+        Page<User> page = new Page<>(current, size);
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        
+        if (StringUtils.hasText(username)) {
+            wrapper.like(User::getUsername, username);
+        }
+        if (StringUtils.hasText(email)) {
+            wrapper.like(User::getEmail, email);
+        }
+        if (status != null) {
+            wrapper.eq(User::getStatus, status);
+        }
+        
+        wrapper.orderByDesc(User::getCreatedTime);
+        
+        return this.page(page, wrapper);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean createUser(UserManageDTO userDTO) {
+        // 检查用户名是否已存在
+        if (getUserByUsername(userDTO.getUsername()) != null) {
+            throw new RuntimeException("用户名已存在");
+        }
+
+        // 检查邮箱是否已存在
+        if (getUserByEmail(userDTO.getEmail()) != null) {
+            throw new RuntimeException("邮箱已存在");
+        }
+
+        // 密码不能为空
+        if (!StringUtils.hasText(userDTO.getPassword())) {
+            throw new RuntimeException("密码不能为空");
+        }
+
+        // 创建用户对象
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        user.setEmail(userDTO.getEmail());
+        user.setPhone(userDTO.getPhone());
+        user.setRealName(userDTO.getRealName());
+        user.setStatus(userDTO.getStatus() != null ? userDTO.getStatus() : 1);
+
+        // 保存用户
+        boolean result = this.save(user);
+
+        if (result && userDTO.getRoleIds() != null && !userDTO.getRoleIds().isEmpty()) {
+            // 分配角色
+            updateUserRoles(user.getId(), userDTO.getRoleIds());
+        }
+
+        return result;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean updateUser(UserManageDTO userDTO) {
+        if (userDTO.getId() == null) {
+            throw new RuntimeException("用户ID不能为空");
+        }
+
+        User existUser = this.getById(userDTO.getId());
+        if (existUser == null) {
+            throw new RuntimeException("用户不存在");
+        }
+
+        // 检查用户名是否被其他用户占用
+        User userByUsername = getUserByUsername(userDTO.getUsername());
+        if (userByUsername != null && !userByUsername.getId().equals(userDTO.getId())) {
+            throw new RuntimeException("用户名已被其他用户使用");
+        }
+
+        // 检查邮箱是否被其他用户占用
+        User userByEmail = getUserByEmail(userDTO.getEmail());
+        if (userByEmail != null && !userByEmail.getId().equals(userDTO.getId())) {
+            throw new RuntimeException("邮箱已被其他用户使用");
+        }
+
+        // 更新用户信息
+        User user = new User();
+        user.setId(userDTO.getId());
+        user.setUsername(userDTO.getUsername());
+        user.setEmail(userDTO.getEmail());
+        user.setPhone(userDTO.getPhone());
+        user.setRealName(userDTO.getRealName());
+        user.setStatus(userDTO.getStatus());
+
+        // 如果提供了新密码，则更新密码
+        if (StringUtils.hasText(userDTO.getPassword())) {
+            user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        }
+
+        boolean result = this.updateById(user);
+
+        // 更新角色
+        if (result && userDTO.getRoleIds() != null) {
+            updateUserRoles(userDTO.getId(), userDTO.getRoleIds());
+        }
+
+        return result;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean deleteUser(Long userId) {
+        // 删除用户角色关联
+        LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(UserRole::getUserId, userId);
+        userRoleMapper.delete(wrapper);
+
+        // 删除用户
+        return this.removeById(userId);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean batchDeleteUsers(Long[] userIds) {
+        // 删除用户角色关联
+        LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
+        wrapper.in(UserRole::getUserId, Arrays.asList(userIds));
+        userRoleMapper.delete(wrapper);
+
+        // 批量删除用户
+        return this.removeByIds(Arrays.asList(userIds));
+    }
+
+    @Override
+    public List<Role> getUserRoles(Long userId) {
+        return roleMapper.selectByUserId(userId);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean updateUserRoles(Long userId, List<Long> roleIds) {
+        // 删除原有角色
+        LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(UserRole::getUserId, userId);
+        userRoleMapper.delete(wrapper);
+
+        // 添加新角色
+        if (roleIds != null && !roleIds.isEmpty()) {
+            for (Long roleId : roleIds) {
+                UserRole userRole = new UserRole();
+                userRole.setUserId(userId);
+                userRole.setRoleId(roleId);
+                userRoleMapper.insert(userRole);
+            }
+        }
+
+        return true;
     }
 }

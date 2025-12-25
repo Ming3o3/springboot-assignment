@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>编辑用户 - 产品管理系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-container h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .form-group label .required {
+            color: #f56565;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #718096;
+            color: white;
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .help-text {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="navbar-brand">产品管理系统</div>
+    </div>
+    
+    <!-- 主体内容 -->
+    <div class="container">
+        <div class="form-container">
+            <h1>编辑用户</h1>
+            
+            <form id="userForm">
+                <input type="hidden" id="userId" th:value="${user.id}">
+                
+                <div class="form-group">
+                    <label for="username">用户名 <span class="required">*</span></label>
+                    <input type="text" id="username" name="username" th:value="${user.username}" required>
+                    <div class="help-text">3-20个字符，只能包含字母、数字和下划线</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" placeholder="留空表示不修改密码">
+                    <div class="help-text">如需修改密码，请输入6-20个字符</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">邮箱 <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" th:value="${user.email}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="realName">真实姓名</label>
+                    <input type="text" id="realName" name="realName" th:value="${user.realName}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">手机号</label>
+                    <input type="tel" id="phone" name="phone" th:value="${user.phone}" pattern="^1[3-9]\d{9}$">
+                    <div class="help-text">请输入11位手机号</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="status">状态 <span class="required">*</span></label>
+                    <select id="status" name="status">
+                        <option value="1" th:selected="${user.status == 1}">启用</option>
+                        <option value="0" th:selected="${user.status == 0}">禁用</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>角色分配 <span class="required">*</span></label>
+                    <div class="checkbox-group" id="roleCheckboxes">
+                        <div class="checkbox-item" th:each="role : ${roles}">
+                            <input type="checkbox" 
+                                   th:id="'role_' + ${role.id}" 
+                                   th:value="${role.id}" 
+                                   th:checked="${#lists.contains(userRoles.![id], role.id)}"
+                                   name="roleIds">
+                            <label th:for="'role_' + ${role.id}" 
+                                   th:text="${role.roleName}"
+                                   style="margin-bottom: 0; font-weight: normal;"></label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">更新</button>
+                    <a th:href="@{/user/manage}" class="btn btn-secondary">返回</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('userForm');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        // 获取CSRF token
+        const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+        const csrfHeader = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取选中的角色
+            const roleCheckboxes = document.querySelectorAll('input[name="roleIds"]:checked');
+            const roleIds = Array.from(roleCheckboxes).map(cb => parseInt(cb.value));
+            
+            if (roleIds.length === 0) {
+                alert('请至少选择一个角色');
+                return;
+            }
+            
+            // 禁用提交按钮
+            submitBtn.disabled = true;
+            submitBtn.textContent = '更新中...';
+            
+            // 收集表单数据
+            const formData = {
+                id: parseInt(document.getElementById('userId').value),
+                username: document.getElementById('username').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                realName: document.getElementById('realName').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                status: parseInt(document.getElementById('status').value),
+                roleIds: roleIds
+            };
+            
+            // 如果输入了密码，则包含密码字段
+            const password = document.getElementById('password').value;
+            if (password) {
+                formData.password = password;
+            }
+            
+            // 创建headers对象并添加CSRF token
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            headers[csrfHeader] = csrfToken;
+            
+            // 提交数据
+            fetch('/user/api/update', {
+                method: 'PUT',
+                headers: headers,
+                body: JSON.stringify(formData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('用户更新成功！');
+                    window.location.href = '/user/manage';
+                } else {
+                    alert('更新失败：' + data.message);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '更新';
+                }
+            })
+            .catch(err => {
+                alert('网络错误，请重试');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '更新';
+            });
+        });
+    </script>
+</body>
+</html>
