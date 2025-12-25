@@ -37,7 +37,11 @@
         .navbar-user {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+        }
+        
+        .navbar-user span {
+            font-size: 14px;
         }
         
         .navbar-link {
@@ -46,10 +50,26 @@
             padding: 8px 16px;
             border-radius: 5px;
             transition: background 0.3s;
+            font-size: 14px;
         }
         
         .navbar-link:hover {
             background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-logout {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .btn-logout:hover {
+            background: rgba(255,255,255,0.3);
         }
         
         .container {
@@ -294,9 +314,12 @@
         <div class="navbar-brand">产品管理系统</div>
         <div class="navbar-user">
             <a href="/product/list" class="navbar-link">产品管理</a>
-            <a href="/user/manage" class="navbar-link">用户管理</a>
-            <span sec:authentication="name"></span>
-            <a href="/api/logout" class="navbar-link">退出</a>
+            <a href="/user/manage" class="navbar-link" sec:authorize="hasAuthority('ROLE_ADMIN')">用户管理</a>
+            <span>欢迎，<span sec:authentication="name">用户</span></span>
+            <span sec:authorize="hasRole('ADMIN')" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 15px; font-size: 12px;">管理员</span>
+            <form th:action="@{/api/logout}" method="post" style="display: inline;">
+                <button type="submit" class="btn-logout">退出登录</button>
+            </form>
         </div>
     </div>
     

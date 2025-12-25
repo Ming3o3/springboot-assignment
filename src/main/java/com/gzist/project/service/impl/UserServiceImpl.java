@@ -5,9 +5,11 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gzist.project.dto.UserManageDTO;
+import com.gzist.project.entity.Product;
 import com.gzist.project.entity.Role;
 import com.gzist.project.entity.User;
 import com.gzist.project.entity.UserRole;
+import com.gzist.project.mapper.ProductMapper;
 import com.gzist.project.mapper.RoleMapper;
 import com.gzist.project.mapper.UserMapper;
 import com.gzist.project.mapper.UserRoleMapper;
@@ -39,6 +41,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Autowired
     private UserRoleMapper userRoleMapper;
+
+    @Autowired
+    private ProductMapper productMapper;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -206,6 +211,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean deleteUser(Long userId) {
+        // 将该用户创建的产品的created_by设为NULL（逻辑外键级联处理）
+        Product productUpdate = new Product();
+        productUpdate.setCreatedBy(null);
+        LambdaQueryWrapper<Product> productWrapper = new LambdaQueryWrapper<>();
+        productWrapper.eq(Product::getCreatedBy, userId);
+        productMapper.update(productUpdate, productWrapper);
+        
         // 删除用户角色关联
         LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(UserRole::getUserId, userId);
@@ -218,6 +230,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean batchDeleteUsers(Long[] userIds) {
+        // 将这些用户创建的产品的created_by设为NULL（逻辑外键级联处理）
+        Product productUpdate = new Product();
+        productUpdate.setCreatedBy(null);
+        LambdaQueryWrapper<Product> productWrapper = new LambdaQueryWrapper<>();
+        productWrapper.in(Product::getCreatedBy, Arrays.asList(userIds));
+        productMapper.update(productUpdate, productWrapper);
+        
         // 删除用户角色关联
         LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
         wrapper.in(UserRole::getUserId, Arrays.asList(userIds));

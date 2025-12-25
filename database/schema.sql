@@ -55,16 +55,14 @@ CREATE TABLE IF NOT EXISTS `roles` (
 -- ====================================
 CREATE TABLE IF NOT EXISTS `user_roles` (
     `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-    `user_id` BIGINT(20) NOT NULL COMMENT '用户ID（外键）',
-    `role_id` BIGINT(20) NOT NULL COMMENT '角色ID（外键）',
+    `user_id` BIGINT(20) NOT NULL COMMENT '用户ID（逻辑外键，关联users.id）',
+    `role_id` BIGINT(20) NOT NULL COMMENT '角色ID（逻辑外键，关联roles.id）',
     `created_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     PRIMARY KEY (`id`),
     UNIQUE KEY `uk_user_role` (`user_id`, `role_id`),
     KEY `idx_user_id` (`user_id`),
-    KEY `idx_role_id` (`role_id`),
-    CONSTRAINT `fk_user_roles_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-    CONSTRAINT `fk_user_roles_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户角色关联表';
+    KEY `idx_role_id` (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户角色关联表（逻辑外键，由应用层保证数据完整性）';
 
 -- ====================================
 -- 4. 产品表 (products)
@@ -80,16 +78,15 @@ CREATE TABLE IF NOT EXISTS `products` (
     `description` TEXT DEFAULT NULL COMMENT '产品描述',
     `image_url` VARCHAR(255) DEFAULT NULL COMMENT '产品图片URL',
     `status` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '状态（1:上架 0:下架）',
-    `created_by` BIGINT(20) DEFAULT NULL COMMENT '创建人ID',
+    `created_by` BIGINT(20) DEFAULT NULL COMMENT '创建人ID（逻辑外键，关联users.id）',
     `created_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `updated_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (`id`),
     UNIQUE KEY `uk_product_code` (`product_code`),
     KEY `idx_category` (`category`),
     KEY `idx_status` (`status`),
-    KEY `idx_created_by` (`created_by`),
-    CONSTRAINT `fk_products_user` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='产品表';
+    KEY `idx_created_by` (`created_by`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='产品表（逻辑外键，由应用层保证数据完整性）';
 
 -- ====================================
 -- 5. 操作日志表 (operation_logs)
@@ -108,6 +105,21 @@ CREATE TABLE IF NOT EXISTS `operation_logs` (
     KEY `idx_user_id` (`user_id`),
     KEY `idx_created_time` (`created_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='操作日志表';
+
+-- ====================================
+-- 6. 持久化登录表 (persistent_logins)
+-- 说明：Spring Security Remember-Me功能的令牌存储表
+-- ====================================
+CREATE TABLE IF NOT EXISTS `persistent_logins` (
+    `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID（无业务意义）',
+    `username` VARCHAR(64) NOT NULL COMMENT '用户名（逻辑外键，关联users.username）',
+    `series` VARCHAR(64) NOT NULL COMMENT '序列号（唯一标识）',
+    `token` VARCHAR(64) NOT NULL COMMENT '令牌值',
+    `last_used` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后使用时间',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `uk_series` (`series`),
+    KEY `idx_username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='持久化登录令牌表（逻辑外键，由应用层保证数据完整性）';
 
 -- ====================================
 -- 初始化数据

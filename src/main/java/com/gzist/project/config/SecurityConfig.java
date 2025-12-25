@@ -18,7 +18,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import javax.sql.DataSource;
@@ -87,11 +86,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Remember-Me持久化Token仓库
+     * 使用自定义实现以适配id作为主键的表结构
      */
     @Bean
     public PersistentTokenRepository persistentTokenRepository() {
-        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
-        tokenRepository.setDataSource(dataSource);
+        CustomJdbcTokenRepositoryImpl tokenRepository = new CustomJdbcTokenRepositoryImpl();
+        tokenRepository.setJdbcTemplate(new org.springframework.jdbc.core.JdbcTemplate(dataSource));
         // 首次启动时自动创建表，后续可注释掉
 //         tokenRepository.setCreateTableOnStartup(true);
         return tokenRepository;

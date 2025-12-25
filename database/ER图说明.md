@@ -6,6 +6,12 @@
 **字符集**: utf8mb4  
 **排序规则**: utf8mb4_unicode_ci
 
+**设计原则**:
+- **无意义主键**: 所有表均使用自增BIGINT类型的`id`字段作为主键，与业务逻辑解耦
+- **逻辑外键**: 不使用数据库物理外键约束，采用逻辑外键设计，由应用层Service保证数据完整性
+- **事务保证**: 使用`@Transactional`注解确保关联数据的一致性操作
+- **索引优化**: 保留外键字段的索引以提升查询性能
+
 ## 2. 数据表设计
 
 ### 2.1 用户表 (users)
@@ -62,8 +68,8 @@
 | 字段名 | 数据类型 | 约束 | 说明 |
 |--------|---------|------|------|
 | id | BIGINT(20) | PRIMARY KEY, AUTO_INCREMENT | 主键ID |
-| user_id | BIGINT(20) | NOT NULL, FOREIGN KEY | 用户ID（外键） |
-| role_id | BIGINT(20) | NOT NULL, FOREIGN KEY | 角色ID（外键） |
+| user_id | BIGINT(20) | NOT NULL | 用户ID（逻辑外键，关联users.id） |
+| role_id | BIGINT(20) | NOT NULL | 角色ID（逻辑外键，关联roles.id） |
 | created_time | DATETIME | NOT NULL, DEFAULT CURRENT_TIMESTAMP | 创建时间 |
 
 **索引**:
@@ -72,8 +78,9 @@
 - KEY: `user_id`, `role_id`
 
 **外键约束**:
-- `fk_user_roles_user`: `user_id` REFERENCES `users(id)` ON DELETE CASCADE
-- `fk_user_roles_role`: `role_id` REFERENCES `roles(id)` ON DELETE CASCADE
+- 本表使用逻辑外键设计，不在数据库层面定义物理外键
+- `user_id` 逻辑关联 `users(id)`，由应用层保证级联删除
+- `role_id` 逻辑关联 `roles(id)`，由应用层保证级联删除
 
 ---
 
@@ -93,7 +100,7 @@
 | description | TEXT | NULL | 产品描述 |
 | image_url | VARCHAR(255) | NULL | 产品图片URL |
 | status | TINYINT(1) | NOT NULL, DEFAULT 1 | 状态（1:上架 0:下架） |
-| created_by | BIGINT(20) | NULL, FOREIGN KEY | 创建人ID |
+| created_by | BIGINT(20) | NULL | 创建人ID（逻辑外键，关联users.id） |
 | created_time | DATETIME | NOT NULL, DEFAULT CURRENT_TIMESTAMP | 创建时间 |
 | updated_time | DATETIME | NOT NULL, DEFAULT CURRENT_TIMESTAMP ON UPDATE | 更新时间 |
 
@@ -103,7 +110,8 @@
 - KEY: `category`, `status`, `created_by`
 
 **外键约束**:
-- `fk_products_user`: `created_by` REFERENCES `users(id)` ON DELETE SET NULL
+- 本表使用逻辑外键设计,不在数据库层面定义物理外键
+- `created_by` 逻辑关联 `users(id)`，删除用户时由应用层Service将created_by设为NULL或处理关联数据
 
 ---
 
@@ -129,6 +137,37 @@
 
 ---
 
+### 2.6 持久化登录表 (persistent_logins)
+
+**表名**: `persistent_logins`  
+**说明**: Spring Security Remember-Me功能的令牌存储表
+
+| 字段名 | 数据类型 | 约束 | 说明 |
+|--------|---------|------|------|
+| id | BIGINT(20) | PRIMARY KEY, AUTO_INCREMENT | 主键ID（无业务意义） |
+| username | VARCHAR(64) | NOT NULL | 用户名（逻辑外键，关联users.username） |
+| series | VARCHAR(64) | NOT NULL, UNIQUE | 序列号（唯一标识一个令牌） |
+| token | VARCHAR(64) | NOT NULL | 令牌值（每次使用后会更新） |
+| last_used | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP ON UPDATE | 最后使用时间 |
+
+**索引**:
+- PRIMARY KEY: `id`
+- UNIQUE KEY: `series`
+- KEY: `username`
+
+**外键约束**:
+- 本表使用逻辑外键设计，不在数据库层面定义物理外键
+- `username` 逻辑关联 `users(username)`，由应用层保证数据一致性
+
+**说明**:
+- 本表用于Spring Security的"记住我"功能
+- 主键`id`为无业务意义的自增字段
+- `series`字段作为唯一索引，每个用户可以有多个有效的remember-me令牌
+- `token`值在每次使用后会自动更新，防止令牌被盗用
+- `last_used`记录令牌最后使用时间，用于过期清理
+
+---
+
 ## 3. 表关系说明
 
 ### 3.1 用户与角色关系（多对多）
@@ -140,7 +179,7 @@ users (1) ----< user_roles >---- (N) roles
 - 一个用户可以拥有多个角色
 - 一个角色可以分配给多个用户
 - 通过中间表 `user_roles` 实现多对多关系
-- 级联删除：删除用户或角色时，自动删除关联关系
+- **逻辑外键设计**：删除用户或角色时，由应用层Service自动删除关联关系
 
 ### 3.2 用户与产品关系（一对多）
 
@@ -150,8 +189,8 @@ users (1) ----< (N) products
 
 - 一个用户可以创建多个产品
 - 一个产品只能由一个用户创建
-- 通过 `products.created_by` 外键关联
-- 删除用户时，产品的 `created_by` 字段设为 NULL
+- 通过 `products.created_by` 逻辑外键关联
+- **逻辑外键设计**：删除用户时，由应用层Service将产品的 `created_by` 字段设为 NULL 或根据业务需求处理
 
 ---
 
@@ -215,8 +254,9 @@ users (1) ----< (N) products
 ## 5. 数据完整性设计
 
 ### 5.1 主键设计
-- 所有表均使用 `BIGINT` 类型自增主键 `id`
+- 所有表均使用 `BIGINT` 类型自增主键 `id`（无业务意义）
 - 确保数据唯一性和高效查询
+- 主键id与业务逻辑解耦，便于系统扩展和维护
 
 ### 5.2 唯一约束
 - `users.username`: 保证用户名唯一
@@ -225,9 +265,22 @@ users (1) ----< (N) products
 - `products.product_code`: 保证产品编码唯一
 - `user_roles(user_id, role_id)`: 防止重复分配角色
 
-### 5.3 外键约束
-- 使用外键约束保证参照完整性
-- 合理设置级联操作（CASCADE、SET NULL）
+### 5.3 逻辑外键约束（应用层保证）
+- **设计原则**：不使用数据库物理外键约束，采用逻辑外键设计
+- **优点**：
+  - 提高系统灵活性，避免数据库层面锁定
+  - 更好的水平扩展能力和分库分表支持
+  - 简化数据迁移和备份恢复操作
+  - 业务逻辑集中在应用层，更易维护
+- **关联字段**：
+  - `user_roles.user_id` → `users.id`
+  - `user_roles.role_id` → `roles.id`
+  - `products.created_by` → `users.id`
+- **数据完整性保证**：
+  - Service层使用 `@Transactional` 注解保证事务一致性
+  - 删除用户时，先删除 `user_roles` 关联数据，再删除用户
+  - 删除角色时，先删除 `user_roles` 关联数据，再删除角色
+  - 删除用户时，将 `products.created_by` 设为 NULL 或根据业务需求处理
 
 ### 5.4 数据类型规范
 - 日期字段使用 `DATETIME` 类型
@@ -287,9 +340,10 @@ users (1) ----< (N) products
 ## 9. 安全性设计
 
 - 密码采用 BCrypt 加密存储
-- 外键约束保证数据一致性
+- 逻辑外键设计，由应用层Service保证数据一致性
 - 操作日志记录用户操作行为
 - 用户状态控制账户启用/禁用
+- 使用事务管理保证数据操作的原子性
 
 ---
 
@@ -302,5 +356,10 @@ users (1) ----< (N) products
 
 ---
 
-**文档版本**: v1.0  
-**创建日期**: 2025-12-23
+**文档版本**: v2.0  
+**创建日期**: 2025-12-23  
+**更新日期**: 2025-12-25  
+**更新说明**: 
+- v2.0: 将所有表改为使用无业务意义的自增id作为主键
+- v2.0: 所有外键关联改为逻辑外键，由应用层保证数据完整性
+- v2.0: 添加persistent_logins表并适配自定义TokenRepository实现
