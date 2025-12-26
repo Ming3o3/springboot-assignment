@@ -252,6 +252,27 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
+    public com.gzist.project.vo.response.UserDetailResponse getUserDetail(Long userId) {
+        User user = this.getById(userId);
+        if (user == null) {
+            throw new com.gzist.project.exception.BusinessException("用户不存在");
+        }
+        
+        // 隐藏密码
+        user.setPassword(null);
+        
+        // 获取用户角色
+        List<Role> roles = getUserRoles(userId);
+        
+        return new com.gzist.project.vo.response.UserDetailResponse(user, roles);
+    }
+
+    @Override
+    public List<Role> getAllRoles() {
+        return roleMapper.selectList(null);
+    }
+
+    @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean updateUserRoles(Long userId, List<Long> roleIds) {
         // 删除原有角色

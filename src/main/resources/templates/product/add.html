@@ -158,8 +158,13 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="imageUrl">产品图片URL</label>
-                    <input type="url" id="imageUrl" name="imageUrl" placeholder="https://">
+                    <label for="imageFile">产品图片 <span style="color: #999; font-size: 12px;">(支持jpg/png/gif/webp格式，最大5MB)</span></label>
+                    <input type="file" id="imageFile" accept="image/jpeg,image/png,image/gif,image/webp" style="display: block; margin-bottom: 10px;">
+                    <input type="hidden" id="imageUrl" name="imageUrl">
+                    <div id="imagePreview" style="margin-top: 10px; display: none;">
+                        <img id="previewImg" src="" style="max-width: 200px; max-height: 200px; border: 1px solid #ddd; border-radius: 5px;">
+                        <p id="uploadStatus" style="margin-top: 5px; color: #666;"></p>
+                    </div>
                 </div>
                 
                 <div class="form-group">
@@ -181,10 +186,78 @@
     <script>
         const form = document.getElementById('productForm');
         const submitBtn = document.getElementById('submitBtn');
+        const imageFileInput = document.getElementById('imageFile');
+        const imagePreview = document.getElementById('imagePreview');
+        const previewImg = document.getElementById('previewImg');
+        const uploadStatus = document.getElementById('uploadStatus');
+        const imageUrlInput = document.getElementById('imageUrl');
         
         // 获取CSRF token
         const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute('content');
         const csrfHeader = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
+        
+        // 文件选择事件
+        imageFileInput.addEventListener('change', async function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            // 文件大小验证
+            if (file.size > 5 * 1024 * 1024) {
+                alert('文件大小不能超过5MB');
+                imageFileInput.value = '';
+                return;
+            }
+            
+            // 文件类型验证
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('只支持jpg、png、gif、webp格式的图片');
+                imageFileInput.value = '';
+                return;
+            }
+            
+            // 显示预览
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+            
+            // 上传文件
+            uploadStatus.textContent = '上传中...';
+            uploadStatus.style.color = '#666';
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            try {
+                const headers = {};
+                headers[csrfHeader] = csrfToken;
+                
+                const response = await fetch('/api/file/upload/product-image', {
+                    method: 'POST',
+                    headers: headers,
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    imageUrlInput.value = result.data;
+                    uploadStatus.textContent = '上传成功';
+                    uploadStatus.style.color = '#28a745';
+                } else {
+                    uploadStatus.textContent = '上传失败：' + result.message;
+                    uploadStatus.style.color = '#dc3545';
+                    imageFileInput.value = '';
+                }
+            } catch (error) {
+                uploadStatus.textContent = '上传失败：网络错误';
+                uploadStatus.style.color = '#dc3545';
+                imageFileInput.value = '';
+            }
+        });
         
         form.addEventListener('submit', function(e) {
             e.preventDefault();

@@ -4,14 +4,17 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.gzist.project.common.Result;
 import com.gzist.project.entity.Product;
 import com.gzist.project.service.IProductService;
+import com.gzist.project.vo.request.BatchDeleteRequest;
+import com.gzist.project.vo.request.ProductQueryRequest;
+import com.gzist.project.vo.request.ProductSaveRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.math.BigDecimal;
 
 /**
@@ -78,14 +81,8 @@ public class ProductController {
      */
     @GetMapping("/api/list")
     @ResponseBody
-    public Result<IPage<Product>> list(@RequestParam(defaultValue = "1") Integer current,
-                                        @RequestParam(defaultValue = "10") Integer size,
-                                        @RequestParam(required = false) String productName,
-                                        @RequestParam(required = false) String category,
-                                        @RequestParam(required = false) BigDecimal minPrice,
-                                        @RequestParam(required = false) BigDecimal maxPrice) {
-
-        IPage<Product> page = productService.getProductPage(current, size, productName, category, minPrice, maxPrice);
+    public Result<IPage<Product>> list(@Valid ProductQueryRequest queryRequest) {
+        IPage<Product> page = productService.getProductPage(queryRequest);
         return Result.success(page);
     }
 
@@ -95,20 +92,14 @@ public class ProductController {
     @PostMapping("/api/add")
     @ResponseBody
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public Result<String> add(@RequestBody Product product) {
-        try {
-            // 获取当前登录用户
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            String username = authentication.getName();
-
-            // 这里简化处理，实际应该从UserService中获取用户ID
-            // 暂时设置为null，实际应该改为获取用户ID
-            productService.addProduct(product, 1L);
-
-            return Result.success("产品添加成功");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+    public Result<String> add(@Valid @RequestBody ProductSaveRequest saveRequest, 
+                               Authentication authentication) {
+        // 获取当前登录用户（这里简化处理，实际应从用户服务获取ID）
+        // TODO: 从用户服务根据username获取userId
+        Long userId = 1L;
+        
+        productService.addProduct(saveRequest, userId);
+        return Result.success("产品添加成功");
     }
 
     /**
@@ -117,13 +108,9 @@ public class ProductController {
     @PutMapping("/api/update")
     @ResponseBody
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public Result<String> update(@RequestBody Product product) {
-        try {
-            productService.updateProduct(product);
-            return Result.success("产品更新成功");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+    public Result<String> update(@Valid @RequestBody ProductSaveRequest saveRequest) {
+        productService.updateProduct(saveRequest);
+        return Result.success("产品更新成功");
     }
 
     /**
@@ -133,12 +120,8 @@ public class ProductController {
     @ResponseBody
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public Result<String> delete(@PathVariable Long id) {
-        try {
-            productService.deleteProduct(id);
-            return Result.success("产品删除成功");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+        productService.deleteProduct(id);
+        return Result.success("产品删除成功");
     }
 
     /**
@@ -147,13 +130,9 @@ public class ProductController {
     @DeleteMapping("/api/batch-delete")
     @ResponseBody
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public Result<String> batchDelete(@RequestBody Long[] ids) {
-        try {
-            productService.batchDeleteProducts(ids);
-            return Result.success("批量删除成功");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+    public Result<String> batchDelete(@Valid @RequestBody BatchDeleteRequest deleteRequest) {
+        productService.batchDeleteProducts(deleteRequest.getIds());
+        return Result.success("批量删除成功");
     }
 
     /**
@@ -167,17 +146,5 @@ public class ProductController {
             return Result.error("产品不存在");
         }
         return Result.success(product);
-    }
-
-    /**
-     * 测试管理员权限（调试用）
-     */
-    @GetMapping("/api/test-admin")
-    @ResponseBody
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public Result<String> testAdmin() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return Result.success("管理员权限验证成功！用户：" + authentication.getName() + 
-                             "，权限：" + authentication.getAuthorities());
     }
 }

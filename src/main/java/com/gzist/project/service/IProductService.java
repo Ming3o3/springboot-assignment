@@ -3,6 +3,8 @@ package com.gzist.project.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.gzist.project.entity.Product;
+import com.gzist.project.vo.request.ProductQueryRequest;
+import com.gzist.project.vo.request.ProductSaveRequest;
 
 import java.math.BigDecimal;
 
@@ -29,6 +31,14 @@ public interface IProductService extends IService<Product> {
                                    String category, BigDecimal minPrice, BigDecimal maxPrice);
 
     /**
+     * 分页查询产品（使用请求VO）
+     *
+     * @param queryRequest 查询请求对象
+     * @return 分页结果
+     */
+    IPage<Product> getProductPage(ProductQueryRequest queryRequest);
+
+    /**
      * 新增产品
      *
      * @param product 产品对象
@@ -38,12 +48,29 @@ public interface IProductService extends IService<Product> {
     boolean addProduct(Product product, Long userId);
 
     /**
+     * 新增产品（使用请求VO）
+     *
+     * @param saveRequest 保存请求对象
+     * @param userId 创建人ID
+     * @return 是否成功
+     */
+    boolean addProduct(ProductSaveRequest saveRequest, Long userId);
+
+    /**
      * 更新产品
      *
      * @param product 产品对象
      * @return 是否成功
      */
     boolean updateProduct(Product product);
+
+    /**
+     * 更新产品（使用请求VO）
+     *
+     * @param saveRequest 保存请求对象
+     * @return 是否成功
+     */
+    boolean updateProduct(ProductSaveRequest saveRequest);
 
     /**
      * 删除产品

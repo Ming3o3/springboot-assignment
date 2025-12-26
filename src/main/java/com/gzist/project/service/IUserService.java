@@ -100,6 +100,21 @@ public interface IUserService extends IService<User> {
     List<Role> getUserRoles(Long userId);
 
     /**
+     * 获取用户详情（包含角色信息）
+     *
+     * @param userId 用户ID
+     * @return 用户详情（已隐藏密码）
+     */
+    com.gzist.project.vo.response.UserDetailResponse getUserDetail(Long userId);
+
+    /**
+     * 获取所有角色列表
+     *
+     * @return 角色列表
+     */
+    List<Role> getAllRoles();
+
+    /**
      * 更新用户角色（管理员功能）
      *
      * @param userId 用户ID
