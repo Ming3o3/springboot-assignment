@@ -4,19 +4,15 @@ import com.gzist.project.common.Result;
 import com.gzist.project.dto.RegisterDTO;
 import com.gzist.project.entity.User;
 import com.gzist.project.service.IUserService;
+import com.gzist.project.vo.response.CurrentUserInfoResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -52,29 +48,17 @@ public class AuthController {
      */
     @PostMapping("/api/register")
     @ResponseBody
-    public Result<String> register(@Valid @RequestBody RegisterDTO registerDTO, BindingResult bindingResult) {
-        // 校验参数
-        if (bindingResult.hasErrors()) {
-            return Result.error(bindingResult.getFieldError().getDefaultMessage());
-        }
-
+    public Result<String> register(@Valid @RequestBody RegisterDTO registerDTO) {
         // 校验两次密码是否一致
         if (!registerDTO.getPassword().equals(registerDTO.getConfirmPassword())) {
             return Result.error("两次密码输入不一致");
         }
 
-        try {
-            // 创建用户对象
-            User user = new User();
-            BeanUtils.copyProperties(registerDTO, user);
-
-            // 注册用户
-            userService.register(user);
-
-            return Result.success("注册成功，请登录");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+        User user = new User();
+        BeanUtils.copyProperties(registerDTO, user);
+        
+        userService.register(user);
+        return Result.success("注册成功，请登录");
     }
 
     /**
@@ -102,22 +86,20 @@ public class AuthController {
      */
     @GetMapping("/api/current-user-info")
     @ResponseBody
-    public Result<Map<String, Object>> getCurrentUserInfo() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Map<String, Object> info = new HashMap<>();
-        
-        if (authentication != null) {
-            info.put("username", authentication.getName());
-            info.put("authenticated", authentication.isAuthenticated());
-            
-            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-            info.put("authorities", authorities.stream()
-                    .map(GrantedAuthority::getAuthority)
-                    .collect(Collectors.toList()));
-            
-            info.put("principal", authentication.getPrincipal().toString());
+    public Result<CurrentUserInfoResponse> getCurrentUserInfo(Authentication authentication) {
+        if (authentication == null) {
+            return Result.error("未登录");
         }
-        
-        return Result.success(info);
+
+        CurrentUserInfoResponse response = new CurrentUserInfoResponse(
+                authentication.getName(),
+                authentication.isAuthenticated(),
+                authentication.getAuthorities().stream()
+                        .map(GrantedAuthority::getAuthority)
+                        .collect(Collectors.toList()),
+                authentication.getPrincipal().toString()
+        );
+
+        return Result.success(response);
     }
 }

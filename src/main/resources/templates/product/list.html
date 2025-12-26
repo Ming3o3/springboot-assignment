@@ -176,6 +176,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-image-placeholder {
             color: white;
             font-size: 48px;
         }
@@ -371,7 +382,13 @@
         <div th:if="${page.records.size() > 0}">
             <div class="product-grid">
                 <div class="product-card" th:each="product : ${page.records}">
-                    <div class="product-image">📦</div>
+                    <div class="product-image">
+                        <img th:if="${product.imageUrl != null and !product.imageUrl.isEmpty()}" 
+                             th:src="${product.imageUrl}" 
+                             th:alt="${product.productName}">
+                        <span th:if="${product.imageUrl == null or product.imageUrl.isEmpty()}" 
+                              class="product-image-placeholder">📦</span>
+                    </div>
                     <div class="product-info">
                         <div class="product-name" th:text="${product.productName}">产品名称</div>
                         <div class="product-code" th:text="'编码: ' + ${product.productCode}">PROD001</div>

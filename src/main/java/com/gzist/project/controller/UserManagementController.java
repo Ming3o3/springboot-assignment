@@ -5,19 +5,18 @@ import com.gzist.project.common.Result;
 import com.gzist.project.dto.UserManageDTO;
 import com.gzist.project.entity.Role;
 import com.gzist.project.entity.User;
-import com.gzist.project.mapper.RoleMapper;
 import com.gzist.project.service.IUserService;
+import com.gzist.project.vo.request.BatchDeleteRequest;
+import com.gzist.project.vo.request.UserQueryRequest;
+import com.gzist.project.vo.response.UserDetailResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 用户管理控制器（仅管理员可访问）
@@ -32,9 +31,6 @@ public class UserManagementController {
 
     @Autowired
     private IUserService userService;
-
-    @Autowired
-    private RoleMapper roleMapper;
 
     /**
      * 用户管理页面
@@ -62,8 +58,7 @@ public class UserManagementController {
      */
     @GetMapping("/add")
     public String addPage(Model model) {
-        // 查询所有角色
-        List<Role> roles = roleMapper.selectList(null);
+        List<Role> roles = userService.getAllRoles();
         model.addAttribute("roles", roles);
         return "user/add";
     }
@@ -78,10 +73,7 @@ public class UserManagementController {
             return "redirect:/user/manage";
         }
 
-        // 查询所有角色
-        List<Role> roles = roleMapper.selectList(null);
-        
-        // 查询用户当前角色
+        List<Role> roles = userService.getAllRoles();
         List<Role> userRoles = userService.getUserRoles(id);
 
         model.addAttribute("user", user);
@@ -96,13 +88,14 @@ public class UserManagementController {
      */
     @GetMapping("/api/list")
     @ResponseBody
-    public Result<IPage<User>> list(@RequestParam(defaultValue = "1") Integer current,
-                                     @RequestParam(defaultValue = "10") Integer size,
-                                     @RequestParam(required = false) String username,
-                                     @RequestParam(required = false) String email,
-                                     @RequestParam(required = false) Integer status) {
-
-        IPage<User> page = userService.getUserPage(current, size, username, email, status);
+    public Result<IPage<User>> list(@Valid UserQueryRequest queryRequest) {
+        IPage<User> page = userService.getUserPage(
+                queryRequest.getCurrent(),
+                queryRequest.getSize(),
+                queryRequest.getUsername(),
+                queryRequest.getEmail(),
+                queryRequest.getStatus()
+        );
         return Result.success(page);
     }
 
@@ -111,18 +104,9 @@ public class UserManagementController {
      */
     @PostMapping("/api/add")
     @ResponseBody
-    public Result<String> add(@Valid @RequestBody UserManageDTO userDTO, BindingResult bindingResult) {
-        // 校验参数
-        if (bindingResult.hasErrors()) {
-            return Result.error(bindingResult.getFieldError().getDefaultMessage());
-        }
-
-        try {
-            userService.createUser(userDTO);
-            return Result.success("用户添加成功");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+    public Result<String> add(@Valid @RequestBody UserManageDTO userDTO) {
+        userService.createUser(userDTO);
+        return Result.success("用户添加成功");
     }
 
     /**
@@ -130,18 +114,9 @@ public class UserManagementController {
      */
     @PutMapping("/api/update")
     @ResponseBody
-    public Result<String> update(@Valid @RequestBody UserManageDTO userDTO, BindingResult bindingResult) {
-        // 校验参数
-        if (bindingResult.hasErrors()) {
-            return Result.error(bindingResult.getFieldError().getDefaultMessage());
-        }
-
-        try {
-            userService.updateUser(userDTO);
-            return Result.success("用户更新成功");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+    public Result<String> update(@Valid @RequestBody UserManageDTO userDTO) {
+        userService.updateUser(userDTO);
+        return Result.success("用户更新成功");
     }
 
     /**
@@ -150,12 +125,8 @@ public class UserManagementController {
     @DeleteMapping("/api/delete/{id}")
     @ResponseBody
     public Result<String> delete(@PathVariable Long id) {
-        try {
-            userService.deleteUser(id);
-            return Result.success("用户删除成功");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+        userService.deleteUser(id);
+        return Result.success("用户删除成功");
     }
 
     /**
@@ -163,13 +134,9 @@ public class UserManagementController {
      */
     @DeleteMapping("/api/batch-delete")
     @ResponseBody
-    public Result<String> batchDelete(@RequestBody Long[] ids) {
-        try {
-            userService.batchDeleteUsers(ids);
-            return Result.success("批量删除成功");
-        } catch (Exception e) {
-            return Result.error(e.getMessage());
-        }
+    public Result<String> batchDelete(@Valid @RequestBody BatchDeleteRequest deleteRequest) {
+        userService.batchDeleteUsers(deleteRequest.getIds());
+        return Result.success("批量删除成功");
     }
 
     /**
@@ -177,23 +144,9 @@ public class UserManagementController {
      */
     @GetMapping("/api/detail/{id}")
     @ResponseBody
-    public Result<Map<String, Object>> detail(@PathVariable Long id) {
-        User user = userService.getById(id);
-        if (user == null) {
-            return Result.error("用户不存在");
-        }
-
-        // 隐藏密码
-        user.setPassword(null);
-
-        // 获取用户角色
-        List<Role> roles = userService.getUserRoles(id);
-
-        Map<String, Object> data = new HashMap<>();
-        data.put("user", user);
-        data.put("roles", roles);
-
-        return Result.success(data);
+    public Result<UserDetailResponse> detail(@PathVariable Long id) {
+        UserDetailResponse response = userService.getUserDetail(id);
+        return Result.success(response);
     }
 
     /**
@@ -201,8 +154,11 @@ public class UserManagementController {
      */
     @GetMapping("/api/roles")
     @ResponseBody
-    public Result<List<Role>> getAllRoles() {
-        List<Role> roles = roleMapper.selectList(null);
+    public Result<List<Role>> getRoles() {
+        List<Role> roles = userService.getAllRoles();
         return Result.success(roles);
     }
 }
+
+
+

@@ -1,6 +1,6 @@
 package com.gzist.project.aspect;
 
-import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gzist.project.entity.OperationLog;
 import com.gzist.project.mapper.OperationLogMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -14,8 +14,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 操作日志AOP切面
@@ -30,6 +34,9 @@ public class OperationLogAspect {
 
     @Autowired
     private OperationLogMapper operationLogMapper;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     /**
      * 定义切点：拦截controller包下的所有方法
@@ -64,7 +71,7 @@ public class OperationLogAspect {
             operationLog.setUsername(username);
             operationLog.setOperation(getOperationType(request.getMethod(), request.getRequestURI()));
             operationLog.setMethod(joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-            operationLog.setParams(JSON.toJSONString(joinPoint.getArgs()));
+            operationLog.setParams(getSerializableParams(joinPoint.getArgs()));
             operationLog.setIp(getIpAddress(request));
 
             // 保存日志
@@ -76,6 +83,40 @@ public class OperationLogAspect {
 
         } catch (Exception e) {
             log.error("记录操作日志失败", e);
+        }
+    }
+
+    /**
+     * 获取可序列化的参数
+     * 过滤掉MultipartFile、HttpServletRequest、HttpServletResponse等不可序列化的对象
+     */
+    private String getSerializableParams(Object[] args) {
+        if (args == null || args.length == 0) {
+            return "[]";
+        }
+
+        try {
+            List<Object> serializableArgs = new ArrayList<>();
+            for (Object arg : args) {
+                if (arg == null) {
+                    serializableArgs.add(null);
+                } else if (arg instanceof MultipartFile) {
+                    // MultipartFile转换为文件名信息
+                    MultipartFile file = (MultipartFile) arg;
+                    serializableArgs.add("文件: " + file.getOriginalFilename() + 
+                            " (" + file.getSize() + " bytes)");
+                } else if (arg instanceof HttpServletRequest || 
+                           arg instanceof HttpServletResponse) {
+                    // 忽略Request和Response对象
+                    continue;
+                } else {
+                    serializableArgs.add(arg);
+                }
+            }
+            return objectMapper.writeValueAsString(serializableArgs);
+        } catch (Exception e) {
+            log.warn("参数序列化失败: {}", e.getMessage());
+            return "[]";
         }
     }
 
