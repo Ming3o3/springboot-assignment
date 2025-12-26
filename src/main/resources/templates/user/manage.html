@@ -306,6 +306,31 @@
             outline: none;
             border-color: #667eea;
         }
+        
+        .batch-actions {
+            padding: 15px 20px;
+            background: #f7fafc;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .batch-delete-btn {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .batch-delete-btn.active {
+            opacity: 1;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -361,9 +386,19 @@
         
         <!-- 用户列表 -->
         <div class="table-container">
+            <!-- 批量操作栏 -->
+            <div class="batch-actions">
+                <input type="checkbox" id="selectAll" class="checkbox" onclick="toggleSelectAll(this)">
+                <label for="selectAll" style="cursor: pointer; user-select: none;">全选</label>
+                <button id="batchDeleteBtn" class="btn btn-danger btn-sm batch-delete-btn" onclick="batchDeleteUsers()" disabled>
+                    批量删除 (<span id="selectedCount">0</span>)
+                </button>
+            </div>
+            
             <table>
                 <thead>
                     <tr>
+                        <th>选择</th>
                         <th>ID</th>
                         <th>用户名</th>
                         <th>邮箱</th>
@@ -376,6 +411,9 @@
                 </thead>
                 <tbody>
                     <tr th:each="user : ${page.records}">
+                        <td>
+                            <input type="checkbox" class="checkbox user-checkbox" th:value="${user.id}" onchange="updateBatchButton()">
+                        </td>
                         <td th:text="${user.id}"></td>
                         <td th:text="${user.username}"></td>
                         <td th:text="${user.email}"></td>
@@ -467,6 +505,7 @@
             window.location.href = '/user/manage?' + urlParams.toString();
         }
         
+        // 删除单个用户
         function deleteUser(id) {
             if (confirm('确定要删除这个用户吗？删除后将无法恢复！')) {
                 const headers = {};
@@ -487,6 +526,75 @@
                 })
                 .catch(err => {
                     alert('删除失败，请重试');
+                });
+            }
+        }
+        
+        // 全选/取消全选
+        function toggleSelectAll(checkbox) {
+            const checkboxes = document.querySelectorAll('.user-checkbox');
+            checkboxes.forEach(cb => {
+                cb.checked = checkbox.checked;
+            });
+            updateBatchButton();
+        }
+        
+        // 更新批量删除按钮状态
+        function updateBatchButton() {
+            const checkboxes = document.querySelectorAll('.user-checkbox:checked');
+            const count = checkboxes.length;
+            const btn = document.getElementById('batchDeleteBtn');
+            const countSpan = document.getElementById('selectedCount');
+            const selectAllCheckbox = document.getElementById('selectAll');
+            
+            countSpan.textContent = count;
+            
+            if (count > 0) {
+                btn.disabled = false;
+                btn.classList.add('active');
+            } else {
+                btn.disabled = true;
+                btn.classList.remove('active');
+            }
+            
+            // 更新全选框状态
+            const allCheckboxes = document.querySelectorAll('.user-checkbox');
+            selectAllCheckbox.checked = allCheckboxes.length > 0 && count === allCheckboxes.length;
+        }
+        
+        // 批量删除用户
+        function batchDeleteUsers() {
+            const checkboxes = document.querySelectorAll('.user-checkbox:checked');
+            if (checkboxes.length === 0) {
+                alert('请先选择要删除的用户');
+                return;
+            }
+            
+            const ids = Array.from(checkboxes).map(cb => parseInt(cb.value));
+            
+            if (confirm(`确定要删除选中的 ${ids.length} 个用户吗？删除后将无法恢复！`)) {
+                const headers = {
+                    'Content-Type': 'application/json'
+                };
+                headers[csrfHeader] = csrfToken;
+                
+                fetch('/user/api/batch-delete', {
+                    method: 'DELETE',
+                    headers: headers,
+                    body: JSON.stringify({ ids: ids })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('批量删除成功！');
+                        location.reload();
+                    } else {
+                        alert('批量删除失败：' + data.message);
+                    }
+                })
+                .catch(err => {
+                    console.error('批量删除失败：', err);
+                    alert('批量删除失败，请重试');
                 });
             }
         }

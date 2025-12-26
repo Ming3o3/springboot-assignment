@@ -37,12 +37,9 @@ public class UserManagementController {
 
     /**
      * 用户管理页面
-     * 使用VO对象封装查询参数，符合分层架构规范
      */
     @GetMapping("/manage")
     public String managePage(UserQueryRequest queryRequest, Model model) {
-        log.info("访问用户管理页 - 参数: {}", queryRequest);
-
         IPage<User> page = userService.getUserPage(
                 queryRequest.getCurrent(),
                 queryRequest.getSize(),
@@ -50,9 +47,6 @@ public class UserManagementController {
                 queryRequest.getEmail(),
                 queryRequest.getStatus()
         );
-        
-        log.info("用户列表查询完成 - 总记录数: {}, 当前页: {}/{}",
-                page.getTotal(), page.getCurrent(), page.getPages());
 
         model.addAttribute("page", page);
         model.addAttribute("username", queryRequest.getUsername());
@@ -74,7 +68,6 @@ public class UserManagementController {
 
     /**
      * 编辑用户页面
-     * 业务逻辑（null判断）已移至Service层
      */
     @GetMapping("/edit/{id}")
     public String editPage(@PathVariable Long id, Model model) {
@@ -115,9 +108,7 @@ public class UserManagementController {
     @PostMapping("/api/add")
     @ResponseBody
     public Result<String> add(@Valid @RequestBody UserManageDTO userDTO) {
-        log.info("新增用户请求 - 用户名: {}", userDTO.getUsername());
         userService.createUser(userDTO);
-        log.info("用户添加成功 - 用户名: {}", userDTO.getUsername());
         return Result.success("用户添加成功");
     }
 
@@ -137,9 +128,7 @@ public class UserManagementController {
     @DeleteMapping("/api/delete/{id}")
     @ResponseBody
     public Result<String> delete(@PathVariable Long id) {
-        log.info("删除用户请求 - ID: {}", id);
         userService.deleteUser(id);
-        log.info("用户删除成功 - ID: {}", id);
         return Result.success("用户删除成功");
     }
 

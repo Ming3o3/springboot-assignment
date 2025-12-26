@@ -47,23 +47,16 @@ public class AuthController {
 
     /**
      * 用户注册
-     * 密码一致性校验已移至RegisterDTO的@AssertTrue注解
-     * DTO到Entity转换逻辑已移至Service层
      */
     @PostMapping("/api/register")
     @ResponseBody
     public Result<String> register(@Valid @RequestBody RegisterDTO registerDTO) {
-        log.info("用户注册请求 - 用户名: {}, 邮箱: {}", registerDTO.getUsername(), registerDTO.getEmail());
-        
         userService.registerFromDTO(registerDTO);
-        
-        log.info("用户注册成功 - 用户名: {}", registerDTO.getUsername());
         return Result.success("注册成功，请登录");
     }
 
     /**
      * 检查用户名是否存在
-     * 业务逻辑（判断用户是否存在）已移至Service层
      */
     @GetMapping("/api/check-username")
     @ResponseBody
@@ -74,7 +67,6 @@ public class AuthController {
 
     /**
      * 检查邮箱是否存在
-     * 业务逻辑（判断邮箱是否存在）已移至Service层
      */
     @GetMapping("/api/check-email")
     @ResponseBody

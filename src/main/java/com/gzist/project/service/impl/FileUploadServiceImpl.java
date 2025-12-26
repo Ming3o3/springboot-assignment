@@ -88,6 +88,18 @@ public class FileUploadServiceImpl implements IFileUploadService {
     }
 
     /**
+     * 删除文件（带验证）
+     * 业务逻辑：如果删除失败，抛出BusinessException
+     */
+    @Override
+    public void deleteFileWithValidation(String fileUrl) {
+        boolean success = deleteFile(fileUrl);
+        if (!success) {
+            throw new BusinessException("文件删除失败");
+        }
+    }
+
+    /**
      * 校验文件
      */
     private void validateFile(MultipartFile file) {

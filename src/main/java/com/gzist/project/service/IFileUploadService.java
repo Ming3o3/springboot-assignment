@@ -25,4 +25,12 @@ public interface IFileUploadService {
      * @return 是否成功
      */
     boolean deleteFile(String fileUrl);
+
+    /**
+     * 删除文件（带验证）
+     * 业务逻辑：如果删除失败，抛出BusinessException
+     *
+     * @param fileUrl 文件URL
+     */
+    void deleteFileWithValidation(String fileUrl);
 }
