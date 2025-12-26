@@ -12,17 +12,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 操作日志AOP切面
+ * 拦截Controller层方法，自动记录用户操作日志
+ * 过滤不可序列化的Spring框架对象，只记录业务参数
  *
  * @author GZIST
  * @since 2025-12-23
@@ -88,7 +96,18 @@ public class OperationLogAspect {
 
     /**
      * 获取可序列化的参数
-     * 过滤掉MultipartFile、HttpServletRequest、HttpServletResponse等不可序列化的对象
+     * 过滤Spring框架对象，只保留业务VO对象和基本类型
+     * 
+     * 过滤的对象类型：
+     * 1. MultipartFile - 文件上传对象
+     * 2. HttpServletRequest/Response - HTTP请求响应对象
+     * 3. Model - Spring MVC视图模型
+     * 4. BindingResult - 数据绑定结果
+     * 5. WebRequest - Web请求对象
+     * 6. HttpSession - 会话对象
+     * 
+     * @param args 方法参数数组
+     * @return JSON格式的参数字符串
      */
     private String getSerializableParams(Object[] args) {
         if (args == null || args.length == 0) {
@@ -98,18 +117,40 @@ public class OperationLogAspect {
         try {
             List<Object> serializableArgs = new ArrayList<>();
             for (Object arg : args) {
+                // 跳过null值
                 if (arg == null) {
-                    serializableArgs.add(null);
-                } else if (arg instanceof MultipartFile) {
-                    // MultipartFile转换为文件名信息
+                    continue;
+                }
+                
+                // 过滤MultipartFile（文件上传）
+                if (arg instanceof MultipartFile) {
                     MultipartFile file = (MultipartFile) arg;
                     serializableArgs.add("文件: " + file.getOriginalFilename() + 
                             " (" + file.getSize() + " bytes)");
-                } else if (arg instanceof HttpServletRequest || 
-                           arg instanceof HttpServletResponse) {
+                }
+                // 过滤Servlet相关对象
+                else if (arg instanceof ServletRequest || 
+                         arg instanceof ServletResponse ||
+                         arg instanceof HttpServletRequest || 
+                         arg instanceof HttpServletResponse) {
                     // 忽略Request和Response对象
                     continue;
-                } else {
+                }
+                // 过滤Spring MVC相关对象
+                else if (arg instanceof Model || 
+                         arg instanceof BindingResult ||
+                         arg instanceof WebRequest ||
+                         arg instanceof HttpSession) {
+                    // 忽略Model、BindingResult、WebRequest、Session对象
+                    continue;
+                }
+                // 过滤Authentication对象
+                else if (arg instanceof Authentication) {
+                    // 忽略Spring Security认证对象
+                    continue;
+                }
+                // 保留业务对象（VO、DTO、Entity等）
+                else {
                     serializableArgs.add(arg);
                 }
             }

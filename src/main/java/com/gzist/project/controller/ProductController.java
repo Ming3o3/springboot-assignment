@@ -32,23 +32,19 @@ public class ProductController {
 
     /**
      * 产品列表页面
+     * 使用VO对象封装查询参数，符合分层架构规范
+     * Spring MVC自动将请求参数绑定到VO对象
      */
     @GetMapping("/list")
-    public String listPage(Model model,
-                           @RequestParam(defaultValue = "1") Integer current,
-                           @RequestParam(defaultValue = "10") Integer size,
-                           @RequestParam(required = false) String productName,
-                           @RequestParam(required = false) String category,
-                           @RequestParam(required = false) BigDecimal minPrice,
-                           @RequestParam(required = false) BigDecimal maxPrice) {
-
-        IPage<Product> page = productService.getProductPage(current, size, productName, category, minPrice, maxPrice);
+    public String listPage(ProductQueryRequest queryRequest, Model model) {
+        // 使用Service层缓存的方法查询
+        IPage<Product> page = productService.getProductPage(queryRequest);
 
         model.addAttribute("page", page);
-        model.addAttribute("productName", productName);
-        model.addAttribute("category", category);
-        model.addAttribute("minPrice", minPrice);
-        model.addAttribute("maxPrice", maxPrice);
+        model.addAttribute("productName", queryRequest.getProductName());
+        model.addAttribute("category", queryRequest.getCategory());
+        model.addAttribute("minPrice", queryRequest.getMinPrice());
+        model.addAttribute("maxPrice", queryRequest.getMaxPrice());
 
         return "product/list";
     }
