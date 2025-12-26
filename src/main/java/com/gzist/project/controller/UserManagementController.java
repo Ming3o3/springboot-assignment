@@ -2,6 +2,7 @@ package com.gzist.project.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.gzist.project.common.Result;
+import lombok.extern.slf4j.Slf4j;
 import com.gzist.project.dto.UserManageDTO;
 import com.gzist.project.entity.Role;
 import com.gzist.project.entity.User;
@@ -20,10 +21,12 @@ import java.util.List;
 
 /**
  * 用户管理控制器（仅管理员可访问）
+ * 遵循分层架构，使用VO对象封装参数
  *
  * @author GZIST
  * @since 2025-12-25
  */
+@Slf4j
 @Controller
 @RequestMapping("/user")
 @PreAuthorize("hasAuthority('ROLE_ADMIN')")
@@ -34,21 +37,27 @@ public class UserManagementController {
 
     /**
      * 用户管理页面
+     * 使用VO对象封装查询参数，符合分层架构规范
      */
     @GetMapping("/manage")
-    public String managePage(Model model,
-                             @RequestParam(defaultValue = "1") Integer current,
-                             @RequestParam(defaultValue = "10") Integer size,
-                             @RequestParam(required = false) String username,
-                             @RequestParam(required = false) String email,
-                             @RequestParam(required = false) Integer status) {
+    public String managePage(UserQueryRequest queryRequest, Model model) {
+        log.info("访问用户管理页 - 参数: {}", queryRequest);
 
-        IPage<User> page = userService.getUserPage(current, size, username, email, status);
+        IPage<User> page = userService.getUserPage(
+                queryRequest.getCurrent(),
+                queryRequest.getSize(),
+                queryRequest.getUsername(),
+                queryRequest.getEmail(),
+                queryRequest.getStatus()
+        );
+        
+        log.info("用户列表查询完成 - 总记录数: {}, 当前页: {}/{}",
+                page.getTotal(), page.getCurrent(), page.getPages());
 
         model.addAttribute("page", page);
-        model.addAttribute("username", username);
-        model.addAttribute("email", email);
-        model.addAttribute("status", status);
+        model.addAttribute("username", queryRequest.getUsername());
+        model.addAttribute("email", queryRequest.getEmail());
+        model.addAttribute("status", queryRequest.getStatus());
 
         return "user/manage";
     }
@@ -105,7 +114,9 @@ public class UserManagementController {
     @PostMapping("/api/add")
     @ResponseBody
     public Result<String> add(@Valid @RequestBody UserManageDTO userDTO) {
+        log.info("新增用户请求 - 用户名: {}", userDTO.getUsername());
         userService.createUser(userDTO);
+        log.info("用户添加成功 - 用户名: {}", userDTO.getUsername());
         return Result.success("用户添加成功");
     }
 
@@ -125,7 +136,9 @@ public class UserManagementController {
     @DeleteMapping("/api/delete/{id}")
     @ResponseBody
     public Result<String> delete(@PathVariable Long id) {
+        log.info("删除用户请求 - ID: {}", id);
         userService.deleteUser(id);
+        log.info("用户删除成功 - ID: {}", id);
         return Result.success("用户删除成功");
     }
 

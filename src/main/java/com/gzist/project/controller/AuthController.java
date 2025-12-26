@@ -1,6 +1,7 @@
 package com.gzist.project.controller;
 
 import com.gzist.project.common.Result;
+import lombok.extern.slf4j.Slf4j;
 import com.gzist.project.dto.RegisterDTO;
 import com.gzist.project.entity.User;
 import com.gzist.project.service.IUserService;
@@ -17,10 +18,12 @@ import java.util.stream.Collectors;
 
 /**
  * 认证控制器（登录、注册）
+ * 专注于认证相关的HTTP请求处理
  *
  * @author GZIST
  * @since 2025-12-23
  */
+@Slf4j
 @Controller
 public class AuthController {
 
@@ -45,19 +48,19 @@ public class AuthController {
 
     /**
      * 用户注册
+     * 密码一致性校验已移至RegisterDTO的@AssertTrue注解
+     * Controller层只负责调用Service，不包含业务验证逻辑
      */
     @PostMapping("/api/register")
     @ResponseBody
     public Result<String> register(@Valid @RequestBody RegisterDTO registerDTO) {
-        // 校验两次密码是否一致
-        if (!registerDTO.getPassword().equals(registerDTO.getConfirmPassword())) {
-            return Result.error("两次密码输入不一致");
-        }
+        log.info("用户注册请求 - 用户名: {}, 邮箱: {}", registerDTO.getUsername(), registerDTO.getEmail());
 
         User user = new User();
         BeanUtils.copyProperties(registerDTO, user);
         
         userService.register(user);
+        log.info("用户注册成功 - 用户名: {}", registerDTO.getUsername());
         return Result.success("注册成功，请登录");
     }
 

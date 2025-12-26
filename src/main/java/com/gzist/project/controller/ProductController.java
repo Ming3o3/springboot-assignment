@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.gzist.project.common.Result;
 import com.gzist.project.entity.Product;
 import com.gzist.project.service.IProductService;
+import com.gzist.project.utils.UserContext;
 import com.gzist.project.vo.request.BatchDeleteRequest;
 import com.gzist.project.vo.request.ProductQueryRequest;
 import com.gzist.project.vo.request.ProductSaveRequest;
@@ -33,6 +34,9 @@ public class ProductController {
 
     @Autowired
     private IProductService productService;
+
+    @Autowired
+    private UserContext userContext;
 
     /**
      * 产品列表页面
@@ -100,11 +104,9 @@ public class ProductController {
     @PostMapping("/api/add")
     @ResponseBody
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public Result<String> add(@Valid @RequestBody ProductSaveRequest saveRequest, 
-                               Authentication authentication) {
-        // 获取当前登录用户（这里简化处理，实际应从用户服务获取ID）
-        // TODO: 从用户服务根据username获取userId
-        Long userId = 1L;
+    public Result<String> add(@Valid @RequestBody ProductSaveRequest saveRequest) {
+        // 使用UserContext统一获取当前登录用户ID
+        Long userId = userContext.getCurrentUserId();
         
         productService.addProduct(saveRequest, userId);
         return Result.success("产品添加成功");

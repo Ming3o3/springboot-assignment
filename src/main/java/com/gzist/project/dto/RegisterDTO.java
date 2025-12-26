@@ -2,6 +2,7 @@ package com.gzist.project.dto;
 
 import lombok.Data;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -51,4 +52,17 @@ public class RegisterDTO {
      * 手机号
      */
     private String phone;
+
+    /**
+     * 自定义校验：两次密码必须一致
+     * 使用@AssertTrue注解实现对象级验证
+     * Controller层无需再手动校验
+     */
+    @AssertTrue(message = "两次密码输入不一致")
+    public boolean isPasswordMatching() {
+        if (password == null || confirmPassword == null) {
+            return false;
+        }
+        return password.equals(confirmPassword);
+    }
 }
