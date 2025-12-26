@@ -76,11 +76,12 @@ public class ProductController {
 
     /**
      * 编辑产品页面
+     * 业务逻辑（null判断）已移至Service层
      */
     @GetMapping("/edit/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String editPage(@PathVariable Long id, Model model) {
-        Product product = productService.getById(id);
+        Product product = productService.getProductForEdit(id);
         if (product == null) {
             return "redirect:/product/list";
         }
@@ -147,14 +148,12 @@ public class ProductController {
 
     /**
      * 查看产品详情
+     * 业务逻辑（null判断）已移至Service层
      */
     @GetMapping("/api/detail/{id}")
     @ResponseBody
     public Result<Product> detail(@PathVariable Long id) {
-        Product product = productService.getById(id);
-        if (product == null) {
-            return Result.error("产品不存在");
-        }
+        Product product = productService.getProductDetail(id);
         return Result.success(product);
     }
 }

@@ -74,10 +74,11 @@ public class UserManagementController {
 
     /**
      * 编辑用户页面
+     * 业务逻辑（null判断）已移至Service层
      */
     @GetMapping("/edit/{id}")
     public String editPage(@PathVariable Long id, Model model) {
-        User user = userService.getById(id);
+        User user = userService.getUserForEdit(id);
         if (user == null) {
             return "redirect:/user/manage";
         }

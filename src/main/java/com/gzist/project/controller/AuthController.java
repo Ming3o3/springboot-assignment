@@ -6,7 +6,6 @@ import com.gzist.project.dto.RegisterDTO;
 import com.gzist.project.entity.User;
 import com.gzist.project.service.IUserService;
 import com.gzist.project.vo.response.CurrentUserInfoResponse;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -49,39 +48,39 @@ public class AuthController {
     /**
      * 用户注册
      * 密码一致性校验已移至RegisterDTO的@AssertTrue注解
-     * Controller层只负责调用Service，不包含业务验证逻辑
+     * DTO到Entity转换逻辑已移至Service层
      */
     @PostMapping("/api/register")
     @ResponseBody
     public Result<String> register(@Valid @RequestBody RegisterDTO registerDTO) {
         log.info("用户注册请求 - 用户名: {}, 邮箱: {}", registerDTO.getUsername(), registerDTO.getEmail());
-
-        User user = new User();
-        BeanUtils.copyProperties(registerDTO, user);
         
-        userService.register(user);
+        userService.registerFromDTO(registerDTO);
+        
         log.info("用户注册成功 - 用户名: {}", registerDTO.getUsername());
         return Result.success("注册成功，请登录");
     }
 
     /**
      * 检查用户名是否存在
+     * 业务逻辑（判断用户是否存在）已移至Service层
      */
     @GetMapping("/api/check-username")
     @ResponseBody
     public Result<Boolean> checkUsername(@RequestParam String username) {
-        User user = userService.getUserByUsername(username);
-        return Result.success(user == null);
+        boolean available = userService.isUsernameAvailable(username);
+        return Result.success(available);
     }
 
     /**
      * 检查邮箱是否存在
+     * 业务逻辑（判断邮箱是否存在）已移至Service层
      */
     @GetMapping("/api/check-email")
     @ResponseBody
     public Result<Boolean> checkEmail(@RequestParam String email) {
-        User user = userService.getUserByEmail(email);
-        return Result.success(user == null);
+        boolean available = userService.isEmailAvailable(email);
+        return Result.success(available);
     }
 
     /**

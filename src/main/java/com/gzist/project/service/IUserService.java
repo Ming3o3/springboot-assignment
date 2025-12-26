@@ -41,6 +41,24 @@ public interface IUserService extends IService<User> {
     boolean register(User user);
 
     /**
+     * 用户注册（使用DTO）
+     * 封装DTO到Entity的转换逻辑
+     *
+     * @param registerDTO 注册DTO
+     * @return 是否成功
+     */
+    boolean registerFromDTO(com.gzist.project.dto.RegisterDTO registerDTO);
+
+    /**
+     * 获取用户用于编辑
+     * 如果用户不存在，返回null
+     *
+     * @param id 用户ID
+     * @return 用户对象
+     */
+    User getUserForEdit(Long id);
+
+    /**
      * 更新最后登录时间
      *
      * @param userId 用户ID
@@ -122,4 +140,22 @@ public interface IUserService extends IService<User> {
      * @return 是否成功
      */
     boolean updateUserRoles(Long userId, List<Long> roleIds);
+
+    /**
+     * 检查用户名是否可用
+     * 业务逻辑：判断用户名是否已被占用
+     *
+     * @param username 用户名
+     * @return true-可用，false-已存在
+     */
+    boolean isUsernameAvailable(String username);
+
+    /**
+     * 检查邮箱是否可用
+     * 业务逻辑：判断邮箱是否已被占用
+     *
+     * @param email 邮箱
+     * @return true-可用，false-已存在
+     */
+    boolean isEmailAvailable(String email);
 }

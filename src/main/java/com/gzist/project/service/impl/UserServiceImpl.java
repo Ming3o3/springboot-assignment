@@ -292,4 +292,57 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         return true;
     }
+
+    /**
+     * 用户注册（使用DTO）
+     * 将DTO到Entity的转换逻辑从Controller移到Service层
+     * 
+     * @param registerDTO 注册DTO
+     * @return 是否成功
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean registerFromDTO(com.gzist.project.dto.RegisterDTO registerDTO) {
+        User user = new User();
+        org.springframework.beans.BeanUtils.copyProperties(registerDTO, user);
+        return register(user);
+    }
+
+    /**
+     * 获取用户用于编辑
+     * 业务逻辑：如果用户不存在，返回null（由Controller处理重定向）
+     * 
+     * @param id 用户ID
+     * @return 用户对象，不存在返回null
+     */
+    @Override
+    public User getUserForEdit(Long id) {
+        return this.getById(id);
+    }
+
+    /**
+     * 检查用户名是否可用
+     * 业务逻辑：判断用户名是否已存在
+     * 
+     * @param username 用户名
+     * @return true-可用，false-已存在
+     */
+    @Override
+    public boolean isUsernameAvailable(String username) {
+        User user = getUserByUsername(username);
+        return user == null;
+    }
+
+    /**
+     * 检查邮箱是否可用
+     * 业务逻辑：判断邮箱是否已存在
+     * 
+     * @param email 邮箱
+     * @return true-可用，false-已存在
+     */
+    @Override
+    public boolean isEmailAvailable(String email) {
+        User user = getUserByEmail(email);
+        return user == null;
+    }
 }

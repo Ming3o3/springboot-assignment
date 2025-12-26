@@ -244,5 +244,36 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         log.info("批量删除产品 - ids: {}", Arrays.toString(ids));
         return this.removeByIds(Arrays.asList(ids));
     }
+
+    /**
+     * 获取产品详情
+     * 业务逻辑：如果产品不存在，抛出BusinessException
+     * 将null判断从Controller层移到Service层
+     * 
+     * @param id 产品ID
+     * @return 产品对象
+     */
+    @Override
+    public Product getProductDetail(Long id) {
+        log.info("查询产品详情 - id: {}", id);
+        Product product = this.getById(id);
+        if (product == null) {
+            throw new BusinessException("产品不存在");
+        }
+        return product;
+    }
+
+    /**
+     * 获取产品用于编辑
+     * 业务逻辑：如果产品不存在，返回null（由Controller处理重定向）
+     * 
+     * @param id 产品ID
+     * @return 产品对象，不存在返回null
+     */
+    @Override
+    public Product getProductForEdit(Long id) {
+        log.info("查询产品用于编辑 - id: {}", id);
+        return this.getById(id);
+    }
 }
 

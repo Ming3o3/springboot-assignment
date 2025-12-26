@@ -39,6 +39,24 @@ public interface IProductService extends IService<Product> {
     IPage<Product> getProductPage(ProductQueryRequest queryRequest);
 
     /**
+     * 获取产品详情
+     * 如果产品不存在，抛出BusinessException
+     *
+     * @param id 产品ID
+     * @return 产品对象
+     */
+    Product getProductDetail(Long id);
+
+    /**
+     * 获取产品用于编辑
+     * 如果产品不存在，返回null
+     *
+     * @param id 产品ID
+     * @return 产品对象
+     */
+    Product getProductForEdit(Long id);
+
+    /**
      * 新增产品
      *
      * @param product 产品对象
