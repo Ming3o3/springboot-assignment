@@ -89,8 +89,10 @@
             gap: 8px;
         }
         
-        .checkbox-item input[type="checkbox"] {
+        .checkbox-item input[type="checkbox"],
+        .checkbox-item input[type="radio"] {
             width: auto;
+            cursor: pointer;
         }
         
         .form-actions {
@@ -184,10 +186,11 @@
                     <label>角色分配 <span class="required">*</span></label>
                     <div class="checkbox-group" id="roleCheckboxes">
                         <div class="checkbox-item" th:each="role : ${roles}">
-                            <input type="checkbox" 
+                            <input type="radio" 
                                    th:id="'role_' + ${role.roleCode}" 
                                    th:value="${role.roleCode}" 
-                                   name="roleCodes">
+                                   name="roleCode"
+                                   th:checked="${role.roleCode == 'ROLE_USER'}">
                             <label th:for="'role_' + ${role.roleCode}" 
                                    th:text="${role.roleName}"
                                    style="margin-bottom: 0; font-weight: normal;"></label>
@@ -214,12 +217,11 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // 获取选中的角色
-            const roleCheckboxes = document.querySelectorAll('input[name="roleCodes"]:checked');
-            const roleCodes = Array.from(roleCheckboxes).map(cb => cb.value);
+            // 获取选中的角色（单选）
+            const selectedRole = document.querySelector('input[name="roleCode"]:checked');
             
-            if (roleCodes.length === 0) {
-                alert('请至少选择一个角色');
+            if (!selectedRole) {
+                alert('请选择一个角色');
                 return;
             }
             
@@ -227,7 +229,7 @@
             submitBtn.disabled = true;
             submitBtn.textContent = '提交中...';
             
-            // 收集表单数据
+            // 收集表单数据（单个角色代码作为数组）
             const formData = {
                 username: document.getElementById('username').value.trim(),
                 password: document.getElementById('password').value,
@@ -235,7 +237,7 @@
                 realName: document.getElementById('realName').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
                 status: parseInt(document.getElementById('status').value),
-                roleCodes: roleCodes
+                roleCodes: [selectedRole.value]
             };
             
             // 创建headers对象并添加CSRF token

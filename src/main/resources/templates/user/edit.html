@@ -89,8 +89,10 @@
             gap: 8px;
         }
         
-        .checkbox-item input[type="checkbox"] {
+        .checkbox-item input[type="checkbox"],
+        .checkbox-item input[type="radio"] {
             width: auto;
+            cursor: pointer;
         }
         
         .form-actions {
@@ -186,11 +188,11 @@
                     <label>角色分配 <span class="required">*</span></label>
                     <div class="checkbox-group" id="roleCheckboxes">
                         <div class="checkbox-item" th:each="role : ${roles}">
-                            <input type="checkbox" 
+                            <input type="radio" 
                                    th:id="'role_' + ${role.roleCode}" 
                                    th:value="${role.roleCode}" 
-                                   th:checked="${userRoles.?[roleCode == role.roleCode].size() > 0}"
-                                   name="roleCodes">
+                                   th:checked="${#lists.contains(userRoles.![roleCode], role.roleCode)}"
+                                   name="roleCode">
                             <label th:for="'role_' + ${role.roleCode}" 
                                    th:text="${role.roleName}"
                                    style="margin-bottom: 0; font-weight: normal;"></label>
@@ -217,12 +219,11 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // 获取选中的角色
-            const roleCheckboxes = document.querySelectorAll('input[name="roleCodes"]:checked');
-            const roleCodes = Array.from(roleCheckboxes).map(cb => cb.value);
+            // 获取选中的角色（单选）
+            const selectedRole = document.querySelector('input[name="roleCode"]:checked');
             
-            if (roleCodes.length === 0) {
-                alert('请至少选择一个角色');
+            if (!selectedRole) {
+                alert('请选择一个角色');
                 return;
             }
             
@@ -230,7 +231,7 @@
             submitBtn.disabled = true;
             submitBtn.textContent = '更新中...';
             
-            // 收集表单数据
+            // 收集表单数据（单个角色代码作为数组）
             const formData = {
                 id: parseInt(document.getElementById('userId').value),
                 username: document.getElementById('username').value.trim(),
@@ -238,7 +239,7 @@
                 realName: document.getElementById('realName').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
                 status: parseInt(document.getElementById('status').value),
-                roleCodes: roleCodes
+                roleCodes: [selectedRole.value]
             };
             
             // 如果输入了密码，则包含密码字段
