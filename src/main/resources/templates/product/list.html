@@ -452,6 +452,7 @@
                 <div class="page-size-selector">
                     <label>每页显示：</label>
                     <select id="pageSizeSelect" onchange="changePageSize(this.value)">
+                        <option value="3" th:selected="${page.size == 3}">3条</option>
                         <option value="10" th:selected="${page.size == 10}">10条</option>
                         <option value="20" th:selected="${page.size == 20}">20条</option>
                         <option value="50" th:selected="${page.size == 50}">50条</option>

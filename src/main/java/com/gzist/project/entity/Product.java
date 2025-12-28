@@ -79,10 +79,10 @@ public class Product implements Serializable {
     private Integer status;
 
     /**
-     * 创建人ID
+     * 创建人用户名（关联users.username）
      */
-    @TableField("created_by")
-    private Long createdBy;
+    @TableField("created_by_username")
+    private String createdByUsername;
 
     /**
      * 创建时间

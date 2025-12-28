@@ -130,12 +130,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
      * 新增产品（清除所有产品缓存）
      * 
      * @param product 产品实体
-     * @param userId 创建用户ID
+     * @param username 创建用户名
      * @return 是否成功
      */
     @Override
     @CacheEvict(value = "products", allEntries = true)
-    public boolean addProduct(Product product, Long userId) {
+    public boolean addProduct(Product product, String username) {
         log.info("新增产品 - code: {}, name: {}", product.getProductCode(), product.getProductName());
         
         // 检查产品编码是否已存在
@@ -145,8 +145,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             throw new BusinessException("产品编码已存在");
         }
 
-        // 设置创建人
-        product.setCreatedBy(userId);
+        // 设置创建人（使用username）
+        product.setCreatedByUsername(username);
 
         // 设置默认状态
         if (product.getStatus() == null) {
@@ -160,15 +160,15 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
      * 新增产品（使用VO对象，清除所有产品缓存）
      * 
      * @param saveRequest 产品保存请求VO
-     * @param userId 创建用户ID
+     * @param username 创建用户名
      * @return 是否成功
      */
     @Override
     @CacheEvict(value = "products", allEntries = true)
-    public boolean addProduct(ProductSaveRequest saveRequest, Long userId) {
+    public boolean addProduct(ProductSaveRequest saveRequest, String username) {
         Product product = new Product();
         BeanUtils.copyProperties(saveRequest, product);
-        return addProduct(product, userId);
+        return addProduct(product, username);
     }
 
     /**

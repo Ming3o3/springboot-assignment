@@ -24,19 +24,13 @@ public class OperationLog implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 日志ID（主键）
+     * 日志ID（主键，无业务意义）
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * 操作用户ID
-     */
-    @TableField("user_id")
-    private Long userId;
-
-    /**
-     * 操作用户名
+     * 操作用户名（关联users.username）
      */
     @TableField("username")
     private String username;

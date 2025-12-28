@@ -96,26 +96,26 @@ public interface IUserService extends IService<User> {
     /**
      * 删除用户（管理员功能）
      *
-     * @param userId 用户ID
+     * @param id 用户ID
      * @return 是否成功
      */
-    boolean deleteUser(Long userId);
+    boolean deleteUser(Long id);
 
     /**
      * 批量删除用户（管理员功能）
      *
-     * @param userIds 用户ID数组
+     * @param ids 用户ID数组
      * @return 是否成功
      */
-    boolean batchDeleteUsers(Long[] userIds);
+    boolean batchDeleteUsers(Long[] ids);
 
     /**
      * 获取用户的角色列表
      *
-     * @param userId 用户ID
+     * @param username 用户名
      * @return 角色列表
      */
-    List<Role> getUserRoles(Long userId);
+    List<Role> getUserRoles(String username);
 
     /**
      * 获取用户详情（包含角色信息）
@@ -135,11 +135,11 @@ public interface IUserService extends IService<User> {
     /**
      * 更新用户角色（管理员功能）
      *
-     * @param userId 用户ID
-     * @param roleIds 角色ID列表
+     * @param username 用户名
+     * @param roleCodes 角色代码列表
      * @return 是否成功
      */
-    boolean updateUserRoles(Long userId, List<Long> roleIds);
+    boolean updateUserRoles(String username, List<String> roleCodes);
 
     /**
      * 检查用户名是否可用

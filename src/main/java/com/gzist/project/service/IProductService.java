@@ -60,19 +60,19 @@ public interface IProductService extends IService<Product> {
      * 新增产品
      *
      * @param product 产品对象
-     * @param userId 创建人ID
+     * @param username 创建人用户名
      * @return 是否成功
      */
-    boolean addProduct(Product product, Long userId);
+    boolean addProduct(Product product, String username);
 
     /**
      * 新增产品（使用请求VO）
      *
      * @param saveRequest 保存请求对象
-     * @param userId 创建人ID
+     * @param username 创建人用户名
      * @return 是否成功
      */
-    boolean addProduct(ProductSaveRequest saveRequest, Long userId);
+    boolean addProduct(ProductSaveRequest saveRequest, String username);
 
     /**
      * 更新产品

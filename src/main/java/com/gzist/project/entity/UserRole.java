@@ -24,22 +24,22 @@ public class UserRole implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键ID
+     * 主键ID（无业务意义）
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户ID（外键）
+     * 用户名（关联users.username）
      */
-    @TableField("user_id")
-    private Long userId;
+    @TableField("username")
+    private String username;
 
     /**
-     * 角色ID（外键）
+     * 角色代码（关联roles.role_code）
      */
-    @TableField("role_id")
-    private Long roleId;
+    @TableField("role_code")
+    private String roleCode;
 
     /**
      * 创建时间

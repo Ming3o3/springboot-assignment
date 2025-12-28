@@ -18,15 +18,15 @@ import java.util.List;
 public interface RoleMapper extends BaseMapper<Role> {
 
     /**
-     * 根据用户ID查询角色列表
+     * 根据用户名查询角色列表
      *
-     * @param userId 用户ID
+     * @param username 用户名
      * @return 角色列表
      */
     @Select("SELECT r.* FROM roles r " +
-            "INNER JOIN user_roles ur ON r.id = ur.role_id " +
-            "WHERE ur.user_id = #{userId}")
-    List<Role> selectByUserId(@Param("userId") Long userId);
+            "INNER JOIN user_roles ur ON r.role_code = ur.role_code " +
+            "WHERE ur.username = #{username}")
+    List<Role> selectByUsername(@Param("username") String username);
 
     /**
      * 根据角色代码查询角色

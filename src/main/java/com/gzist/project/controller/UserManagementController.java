@@ -77,7 +77,7 @@ public class UserManagementController {
         }
 
         List<Role> roles = userService.getAllRoles();
-        List<Role> userRoles = userService.getUserRoles(id);
+        List<Role> userRoles = userService.getUserRoles(user.getUsername());
 
         model.addAttribute("user", user);
         model.addAttribute("roles", roles);

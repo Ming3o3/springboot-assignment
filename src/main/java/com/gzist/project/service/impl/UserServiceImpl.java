@@ -85,8 +85,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             Role userRole = roleMapper.selectByRoleCode("ROLE_USER");
             if (userRole != null) {
                 UserRole ur = new UserRole();
-                ur.setUserId(user.getId());
-                ur.setRoleId(userRole.getId());
+                ur.setUsername(user.getUsername());
+                ur.setRoleCode(userRole.getRoleCode());
                 userRoleMapper.insert(ur);
             }
         }
@@ -152,9 +152,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         // 保存用户
         boolean result = this.save(user);
 
-        if (result && userDTO.getRoleIds() != null && !userDTO.getRoleIds().isEmpty()) {
-            // 分配角色
-            updateUserRoles(user.getId(), userDTO.getRoleIds());
+        if (result && userDTO.getRoleCodes() != null && !userDTO.getRoleCodes().isEmpty()) {
+            // 分配角色（直接使用roleCodes）
+            updateUserRoles(user.getUsername(), userDTO.getRoleCodes());
         }
 
         return result;
@@ -200,9 +200,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         boolean result = this.updateById(user);
 
-        // 更新角色
-        if (result && userDTO.getRoleIds() != null) {
-            updateUserRoles(userDTO.getId(), userDTO.getRoleIds());
+        // 更新角色（直接使用roleCodes）
+        if (result && userDTO.getRoleCodes() != null) {
+            User updatedUser = this.getById(userDTO.getId());
+            updateUserRoles(updatedUser.getUsername(), userDTO.getRoleCodes());
         }
 
         return result;
@@ -210,45 +211,62 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean deleteUser(Long userId) {
-        // 将该用户创建的产品的created_by设为NULL（逻辑外键级联处理）
+    public boolean deleteUser(Long id) {
+        // 先获取用户信息
+        User user = this.getById(id);
+        if (user == null) {
+            throw new RuntimeException("用户不存在");
+        }
+        
+        // 将该用户创建的产品的created_by_username设为NULL（逻辑外键级联处理）
         Product productUpdate = new Product();
-        productUpdate.setCreatedBy(null);
+        productUpdate.setCreatedByUsername(null);
         LambdaQueryWrapper<Product> productWrapper = new LambdaQueryWrapper<>();
-        productWrapper.eq(Product::getCreatedBy, userId);
+        productWrapper.eq(Product::getCreatedByUsername, user.getUsername());
         productMapper.update(productUpdate, productWrapper);
         
-        // 删除用户角色关联
+        // 删除用户角色关联（使用username）
         LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(UserRole::getUserId, userId);
+        wrapper.eq(UserRole::getUsername, user.getUsername());
         userRoleMapper.delete(wrapper);
 
         // 删除用户
-        return this.removeById(userId);
+        return this.removeById(id);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean batchDeleteUsers(Long[] userIds) {
-        // 将这些用户创建的产品的created_by设为NULL（逻辑外键级联处理）
+    public boolean batchDeleteUsers(Long[] ids) {
+        // 先获取所有用户的username
+        List<User> users = this.listByIds(Arrays.asList(ids));
+        if (users == null || users.isEmpty()) {
+            return false;
+        }
+        
+        List<String> usernames = new java.util.ArrayList<>();
+        for (User user : users) {
+            usernames.add(user.getUsername());
+        }
+        
+        // 将这些用户创建的产品的created_by_username设为NULL（逻辑外键级联处理）
         Product productUpdate = new Product();
-        productUpdate.setCreatedBy(null);
+        productUpdate.setCreatedByUsername(null);
         LambdaQueryWrapper<Product> productWrapper = new LambdaQueryWrapper<>();
-        productWrapper.in(Product::getCreatedBy, Arrays.asList(userIds));
+        productWrapper.in(Product::getCreatedByUsername, usernames);
         productMapper.update(productUpdate, productWrapper);
         
-        // 删除用户角色关联
+        // 删除用户角色关联（使用username）
         LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
-        wrapper.in(UserRole::getUserId, Arrays.asList(userIds));
+        wrapper.in(UserRole::getUsername, usernames);
         userRoleMapper.delete(wrapper);
 
         // 批量删除用户
-        return this.removeByIds(Arrays.asList(userIds));
+        return this.removeByIds(Arrays.asList(ids));
     }
 
     @Override
-    public List<Role> getUserRoles(Long userId) {
-        return roleMapper.selectByUserId(userId);
+    public List<Role> getUserRoles(String username) {
+        return roleMapper.selectByUsername(username);
     }
 
     @Override
@@ -261,8 +279,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         // 隐藏密码
         user.setPassword(null);
         
-        // 获取用户角色
-        List<Role> roles = getUserRoles(userId);
+        // 获取用户角色（使用username）
+        List<Role> roles = getUserRoles(user.getUsername());
         
         return new com.gzist.project.vo.response.UserDetailResponse(user, roles);
     }
@@ -274,18 +292,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean updateUserRoles(Long userId, List<Long> roleIds) {
-        // 删除原有角色
+    public boolean updateUserRoles(String username, List<String> roleCodes) {
+        // 删除原有角色（使用username）
         LambdaQueryWrapper<UserRole> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(UserRole::getUserId, userId);
+        wrapper.eq(UserRole::getUsername, username);
         userRoleMapper.delete(wrapper);
 
-        // 添加新角色
-        if (roleIds != null && !roleIds.isEmpty()) {
-            for (Long roleId : roleIds) {
+        // 添加新角色（使用username和role_code）
+        if (roleCodes != null && !roleCodes.isEmpty()) {
+            for (String roleCode : roleCodes) {
                 UserRole userRole = new UserRole();
-                userRole.setUserId(userId);
-                userRole.setRoleId(roleId);
+                userRole.setUsername(username);
+                userRole.setRoleCode(roleCode);
                 userRoleMapper.insert(userRole);
             }
         }

@@ -187,11 +187,11 @@
                     <div class="checkbox-group" id="roleCheckboxes">
                         <div class="checkbox-item" th:each="role : ${roles}">
                             <input type="checkbox" 
-                                   th:id="'role_' + ${role.id}" 
-                                   th:value="${role.id}" 
-                                   th:checked="${#lists.contains(userRoles.![id], role.id)}"
-                                   name="roleIds">
-                            <label th:for="'role_' + ${role.id}" 
+                                   th:id="'role_' + ${role.roleCode}" 
+                                   th:value="${role.roleCode}" 
+                                   th:checked="${userRoles.?[roleCode == role.roleCode].size() > 0}"
+                                   name="roleCodes">
+                            <label th:for="'role_' + ${role.roleCode}" 
                                    th:text="${role.roleName}"
                                    style="margin-bottom: 0; font-weight: normal;"></label>
                         </div>
@@ -218,10 +218,10 @@
             e.preventDefault();
             
             // 获取选中的角色
-            const roleCheckboxes = document.querySelectorAll('input[name="roleIds"]:checked');
-            const roleIds = Array.from(roleCheckboxes).map(cb => parseInt(cb.value));
+            const roleCheckboxes = document.querySelectorAll('input[name="roleCodes"]:checked');
+            const roleCodes = Array.from(roleCheckboxes).map(cb => cb.value);
             
-            if (roleIds.length === 0) {
+            if (roleCodes.length === 0) {
                 alert('请至少选择一个角色');
                 return;
             }
@@ -238,7 +238,7 @@
                 realName: document.getElementById('realName').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
                 status: parseInt(document.getElementById('status').value),
-                roleIds: roleIds
+                roleCodes: roleCodes
             };
             
             // 如果输入了密码，则包含密码字段

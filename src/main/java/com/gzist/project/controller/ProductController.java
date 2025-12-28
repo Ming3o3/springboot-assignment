@@ -85,8 +85,8 @@ public class ProductController {
     @ResponseBody
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public Result<String> add(@Valid @RequestBody ProductSaveRequest saveRequest) {
-        Long userId = userContext.getCurrentUserId();
-        productService.addProduct(saveRequest, userId);
+        String username = userContext.getCurrentUsername();
+        productService.addProduct(saveRequest, username);
         return Result.success("产品添加成功");
     }
 

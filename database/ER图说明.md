@@ -8,9 +8,10 @@
 
 **设计原则**:
 - **无意义主键**: 所有表均使用自增BIGINT类型的`id`字段作为主键，与业务逻辑解耦
+- **业务字段关联**: 表间关联使用业务字段（username、role_code、product_code等），不使用主键id
 - **逻辑外键**: 不使用数据库物理外键约束，采用逻辑外键设计，由应用层Service保证数据完整性
 - **事务保证**: 使用`@Transactional`注解确保关联数据的一致性操作
-- **索引优化**: 保留外键字段的索引以提升查询性能
+- **索引优化**: 为业务关联字段添加索引以提升查询性能
 
 ## 2. 数据表设计
 
@@ -67,20 +68,20 @@
 
 | 字段名 | 数据类型 | 约束 | 说明 |
 |--------|---------|------|------|
-| id | BIGINT(20) | PRIMARY KEY, AUTO_INCREMENT | 主键ID |
-| user_id | BIGINT(20) | NOT NULL | 用户ID（逻辑外键，关联users.id） |
-| role_id | BIGINT(20) | NOT NULL | 角色ID（逻辑外键，关联roles.id） |
+| id | BIGINT(20) | PRIMARY KEY, AUTO_INCREMENT | 主键ID（无业务意义） |
+| username | VARCHAR(50) | NOT NULL | 用户名（关联users.username） |
+| role_code | VARCHAR(50) | NOT NULL | 角色代码（关联roles.role_code） |
 | created_time | DATETIME | NOT NULL, DEFAULT CURRENT_TIMESTAMP | 创建时间 |
 
 **索引**:
 - PRIMARY KEY: `id`
-- UNIQUE KEY: (`user_id`, `role_id`)
-- KEY: `user_id`, `role_id`
+- UNIQUE KEY: (`username`, `role_code`)
+- KEY: `username`, `role_code`
 
 **外键约束**:
-- 本表使用逻辑外键设计，不在数据库层面定义物理外键
-- `user_id` 逻辑关联 `users(id)`，由应用层保证级联删除
-- `role_id` 逻辑关联 `roles(id)`，由应用层保证级联删除
+- 本表使用业务字段关联，不使用主键id
+- `username` 逻辑关联 `users(username)`，由应用层保证级联删除
+- `role_code` 逻辑关联 `roles(role_code)`，由应用层保证级联删除
 
 ---
 
@@ -100,18 +101,18 @@
 | description | TEXT | NULL | 产品描述 |
 | image_url | VARCHAR(255) | NULL | 产品图片URL |
 | status | TINYINT(1) | NOT NULL, DEFAULT 1 | 状态（1:上架 0:下架） |
-| created_by | BIGINT(20) | NULL | 创建人ID（逻辑外键，关联users.id） |
+| created_by_username | VARCHAR(50) | NULL | 创建人用户名（关联users.username） |
 | created_time | DATETIME | NOT NULL, DEFAULT CURRENT_TIMESTAMP | 创建时间 |
 | updated_time | DATETIME | NOT NULL, DEFAULT CURRENT_TIMESTAMP ON UPDATE | 更新时间 |
 
 **索引**:
 - PRIMARY KEY: `id`
 - UNIQUE KEY: `product_code`
-- KEY: `category`, `status`, `created_by`
+- KEY: `category`, `status`, `created_by_username`
 
 **外键约束**:
-- 本表使用逻辑外键设计,不在数据库层面定义物理外键
-- `created_by` 逻辑关联 `users(id)`，删除用户时由应用层Service将created_by设为NULL或处理关联数据
+- 本表使用业务字段关联,不使用主键id
+- `created_by_username` 逻辑关联 `users(username)`，删除用户时由应用层Service将created_by_username设为NULL或处理关联数据
 
 ---
 
@@ -122,9 +123,8 @@
 
 | 字段名 | 数据类型 | 约束 | 说明 |
 |--------|---------|------|------|
-| id | BIGINT(20) | PRIMARY KEY, AUTO_INCREMENT | 日志ID（主键） |
-| user_id | BIGINT(20) | NULL | 操作用户ID |
-| username | VARCHAR(50) | NULL | 操作用户名 |
+| id | BIGINT(20) | PRIMARY KEY, AUTO_INCREMENT | 日志ID（主键，无业务意义） |
+| username | VARCHAR(50) | NULL | 操作用户名（关联users.username） |
 | operation | VARCHAR(100) | NOT NULL | 操作类型 |
 | method | VARCHAR(255) | NULL | 操作方法 |
 | params | TEXT | NULL | 请求参数 |
@@ -133,7 +133,7 @@
 
 **索引**:
 - PRIMARY KEY: `id`
-- KEY: `user_id`, `created_time`
+- KEY: `username`, `created_time`
 
 ---
 
@@ -197,56 +197,58 @@ users (1) ----< (N) products
 ## 4. ER图示意
 
 ```
-┌─────────────┐
-│   users     │
-├─────────────┤
-│ id (PK)     │───┐
-│ username    │   │
-│ password    │   │
-│ email       │   │
-│ ...         │   │
-└─────────────┘   │
-                  │ 1
-                  │
-                  │ N
-           ┌──────┴──────┐
-           │ user_roles  │
-           ├─────────────┤
-           │ id (PK)     │
-           │ user_id (FK)│
-           │ role_id (FK)│
-           └──────┬──────┘
-                  │ N
-                  │
-                  │ 1
-           ┌──────┴──────┐
-           │   roles     │
-           ├─────────────┤
-           │ id (PK)     │
-           │ role_name   │
-           │ role_code   │
-           │ ...         │
-           └─────────────┘
+┌─────────────────┐
+│   users         │
+├─────────────────┤
+│ id (PK)         │
+│ username (UQ)   │───┐ 关联字段
+│ password        │   │
+│ email (UQ)      │   │
+│ ...             │   │
+└─────────────────┘   │
+                      │ 1
+                      │
+                      │ N
+               ┌──────┴──────────┐
+               │ user_roles      │
+               ├─────────────────┤
+               │ id (PK)         │
+               │ username (FK)   │──┐
+               │ role_code (FK)  │  │ 关联字段
+               └──────┬──────────┘  │
+                      │ N           │
+                      │             │
+                      │ 1           │
+               ┌──────┴──────────┐  │
+               │   roles         │  │
+               ├─────────────────┤  │
+               │ id (PK)         │  │
+               │ role_name       │  │
+               │ role_code (UQ)  │──┘
+               │ ...             │
+               └─────────────────┘
 
 
-┌─────────────┐
-│   users     │
-├─────────────┤
-│ id (PK)     │───┐
-│ ...         │   │ 1
-└─────────────┘   │
-                  │
-                  │ N
-           ┌──────┴──────────┐
-           │   products      │
-           ├─────────────────┤
-           │ id (PK)         │
-           │ product_name    │
-           │ product_code    │
-           │ price           │
-           │ created_by (FK) │
-           │ ...             │
-           └─────────────────┘
+┌─────────────────────┐
+│   users             │
+├─────────────────────┤
+│ id (PK)             │
+│ username (UQ)       │───┐ 关联字段
+│ ...                 │   │
+└─────────────────────┘   │
+                          │ 1
+                          │
+                          │ N
+                   ┌──────┴──────────────────┐
+                   │   products              │
+                   ├─────────────────────────┤
+                   │ id (PK)                 │
+                   │ product_name            │
+                   │ product_code (UQ)       │
+                   │ price                   │
+                   │ created_by_username (FK)│
+                   │ ...                     │
+                   └─────────────────────────┘
 ```
 
 ---
@@ -259,28 +261,30 @@ users (1) ----< (N) products
 - 主键id与业务逻辑解耦，便于系统扩展和维护
 
 ### 5.2 唯一约束
-- `users.username`: 保证用户名唯一
+- `users.username`: 保证用户名唯一（业务标识字段）
 - `users.email`: 保证邮箱唯一
-- `roles.role_code`: 保证角色代码唯一
-- `products.product_code`: 保证产品编码唯一
-- `user_roles(user_id, role_id)`: 防止重复分配角色
+- `roles.role_code`: 保证角色代码唯一（业务标识字段）
+- `products.product_code`: 保证产品编码唯一（业务标识字段）
+- `user_roles(username, role_code)`: 防止重复分配角色
 
 ### 5.3 逻辑外键约束（应用层保证）
-- **设计原则**：不使用数据库物理外键约束，采用逻辑外键设计
+- **设计原则**：不使用数据库物理外键约束，采用逻辑外键设计，使用业务字段关联
 - **优点**：
   - 提高系统灵活性，避免数据库层面锁定
   - 更好的水平扩展能力和分库分表支持
   - 简化数据迁移和备份恢复操作
   - 业务逻辑集中在应用层，更易维护
+  - 主键id与业务字段分离，更灵活的数据关联
 - **关联字段**：
-  - `user_roles.user_id` → `users.id`
-  - `user_roles.role_id` → `roles.id`
-  - `products.created_by` → `users.id`
+  - `user_roles.username` → `users.username`
+  - `user_roles.role_code` → `roles.role_code`
+  - `products.created_by_username` → `users.username`
+  - `operation_logs.username` → `users.username`
 - **数据完整性保证**：
   - Service层使用 `@Transactional` 注解保证事务一致性
-  - 删除用户时，先删除 `user_roles` 关联数据，再删除用户
-  - 删除角色时，先删除 `user_roles` 关联数据，再删除角色
-  - 删除用户时，将 `products.created_by` 设为 NULL 或根据业务需求处理
+  - 删除用户时，先删除 `user_roles` 关联数据（通过username），再删除用户
+  - 删除角色时，先删除 `user_roles` 关联数据（通过role_code），再删除角色
+  - 删除用户时，将 `products.created_by_username` 设为 NULL
 
 ### 5.4 数据类型规范
 - 日期字段使用 `DATETIME` 类型
@@ -298,13 +302,13 @@ users (1) ----< (N) products
 ## 6. 索引设计
 
 ### 6.1 主键索引
-- 所有表的 `id` 字段作为主键索引
+- 所有表的 `id` 字段作为主键索引（无业务意义）
 
 ### 6.2 唯一索引
-- 业务唯一字段（username、email、product_code等）
+- 业务唯一字段（username、email、product_code、role_code等）
 
 ### 6.3 普通索引
-- 外键字段（user_id、role_id、created_by等）
+- 业务关联字段（username、role_code、created_by_username等）
 - 查询条件字段（category、status等）
 - 排序字段（created_time等）
 
@@ -356,10 +360,15 @@ users (1) ----< (N) products
 
 ---
 
-**文档版本**: v2.0  
+**文档版本**: v3.0  
 **创建日期**: 2025-12-23  
-**更新日期**: 2025-12-25  
+**更新日期**: 2025-12-26  
 **更新说明**: 
+- v3.0: 表间关联改为使用业务字段（username、role_code等），不使用主键id关联
+- v3.0: user_roles表使用username和role_code代替user_id和role_id
+- v3.0: products表使用created_by_username代替created_by
+- v3.0: operation_logs表移除user_id字段，仅保留username
 - v2.0: 将所有表改为使用无业务意义的自增id作为主键
 - v2.0: 所有外键关联改为逻辑外键，由应用层保证数据完整性
+- v2.0: 添加persistent_logins表并适配自定义TokenRepository实现
 - v2.0: 添加persistent_logins表并适配自定义TokenRepository实现

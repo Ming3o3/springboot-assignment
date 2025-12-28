@@ -65,7 +65,7 @@ public class UserManageDTO implements Serializable {
     private Integer status;
 
     /**
-     * 角色ID列表
+     * 角色代码列表（使用role_code代替role_id）
      */
-    private List<Long> roleIds;
+    private List<String> roleCodes;
 }

@@ -65,8 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 throw new UsernameNotFoundException("用户不存在");
             }
 
-            // 查询用户角色
-            List<Role> roles = roleMapper.selectByUserId(user.getId());
+            // 查询用户角色（使用username关联）
+            List<Role> roles = roleMapper.selectByUsername(username);
             List<SimpleGrantedAuthority> authorities = roles.stream()
                     .map(role -> new SimpleGrantedAuthority(role.getRoleCode()))
                     .collect(Collectors.toList());
